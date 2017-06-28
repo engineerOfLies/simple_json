@@ -42,6 +42,14 @@ int sj_string_cmp(SJString *string,char *s);
 void sj_string_set(SJString *string,char *s);
 
 /**
+ * @brief set the value of string to s but only length of s
+ * @param string the string to change
+ * @param s the character array to change it to
+ * @param length the limit on characters to copy from s
+ */
+void sj_string_set_limit(SJString *string,char *s,unsigned long length);
+
+/**
  * @brief get the text back from the string
  * @param string the string to get
  * @return NULL on error or the character array containing the string text

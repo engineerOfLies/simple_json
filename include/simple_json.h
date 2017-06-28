@@ -29,16 +29,30 @@ typedef struct SJson_S
  * @param filename the file to parse
  * @return NULL on error or an SJS pointer
  */
-SJson *simple_json_load(const char *filename);
+SJson *sj_load(const char *filename);
 
 /**
  * @brief allocate a new empty json object
  * @return NULL on error or a new json object
  */
-SJson *simple_json_new();
+SJson *sj_new();
 
 /**
  * @brief frees a previously loaded json struct
  */
-void simple_json_free(SJson *sjs);
+void sj_free(SJson *sjs);
+
+/**
+ * @brief convert a json structure into a string
+ * @note the returned string needs to be freed
+ * @param json the json structure to be converted
+ * @return NULL on error or an allocated character array containing the json string
+ */
+char *sj_to_string(SJson *json);
+
+/**
+ * @brief print the contents of the json file to stdout
+ * @param json the json struct to print
+ */
+void sj_echo(SJson *json);
 #endif

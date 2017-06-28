@@ -28,7 +28,7 @@ void sj_pair_free(SJPair *pair)
 {
     if (!pair)return;
     sj_string_free(pair->key);
-    simple_json_free(pair->value);
+    sj_free(pair->value);
     free(pair);
 }
 
@@ -66,7 +66,7 @@ void sj_object_insert(SJson *object,char *key,SJson *value)
 SJson *sj_object_new()
 {
     SJson *object;
-    object = simple_json_new();
+    object = sj_new();
     if (!object)return NULL;
     object->sjtype = SJVT_Object;
     object->json_free = sj_object_free;

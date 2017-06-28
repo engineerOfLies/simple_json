@@ -93,8 +93,36 @@ void sj_string_set(SJString *string,char *s)
             sj_set_error("sj_string_set: failed to allocate space for resized string");
             return;
         }
+        string->size = l;
     }
     strncpy(string->text,s,string->size);
+}
+
+void sj_string_set_limit(SJString *string,char *s,unsigned long l)
+{
+    if (!string)
+    {
+        sj_set_error("sj_string_set: no string provided");
+        return;
+    }
+    if (!s)
+    {
+        sj_set_error("sj_string_set: no character array provided");
+        return;
+    }
+    if (l >= string->size)
+    {
+        if (string->text)free(string->text);
+        string->text = (char*)malloc(sizeof(char)*l);
+        if (!string->text)
+        {
+            sj_set_error("sj_string_set: failed to allocate space for resized string");
+            return;
+        }
+        string->size = l;
+    }
+    strncpy(string->text,s,l);
+    string->text[l] = '\0';
 }
 
 char *sj_string_get_text(SJString *string)

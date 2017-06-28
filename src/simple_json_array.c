@@ -20,7 +20,7 @@ int sj_array_check(SJson *json)
 SJson *sj_array_new()
 {
     SJson *array;
-    array = simple_json_new();
+    array = sj_new();
     if (!array)return NULL;
     array->sjtype = SJVT_Array;
     array->json_free = sj_array_free;
