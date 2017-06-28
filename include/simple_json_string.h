@@ -50,6 +50,20 @@ void sj_string_set(SJString *string,char *s);
 void sj_string_set_limit(SJString *string,char *s,unsigned long length);
 
 /**
+ * @brief append the contents of string2 to string1
+ * @param string1 this string will be modified by this operation
+ * @param string2 this string will NOT be modified by this operation
+ */
+void sj_string_concat(SJString *string1,SJString *string2);
+
+/**
+ * @brief append the contents of buffer to the string
+ * @param string the string to be added to
+ * @param buffer a NULL terminated character buffer.  This will not be modified
+ */
+void sj_string_append(SJString *string,char *buffer);
+
+/**
  * @brief get the text back from the string
  * @param string the string to get
  * @return NULL on error or the character array containing the string text

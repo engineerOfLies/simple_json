@@ -93,89 +93,59 @@ void sj_free(SJson *json)
     if (json->json_free)json->json_free(json);
 }
 
-
-char *sj_to_string(SJson *json)
+void sj_save(SJson *json,char *filename)
 {
-    return NULL;
+    FILE *file;
+    SJString *string;
+    if ((!json) || (!json->get_string))return;
+    string = json->get_string(json);
+    if (!string)return;
+    file = fopen(filename,"w");
+    if (!file)
+    {
+        sj_string_free(string);
+        return;
+    }
+    fputs(string->text,file);
+    fclose(file);
 }
 
 void sj_echo(SJson *json)
 {
-    
+    SJString *output;
+    if ((!json) || (!json->get_string))return;
+    output = json->get_string(json);
+    if (!output)return;
+    printf("%s\n",output->text);
+    sj_string_free(output);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+void sj_null_free(SJson *json)
+{
+    if (!json)return;
+    free(json);
+}
+
+SJString *sj_value_to_json_string(SJson *json)
+{
+    if (!json)return NULL;
+    if (!json->get_string)return NULL;
+    return json->get_string(json);
+}
+
+SJString *sj_null_to_json_string(SJson *json)
+{
+    return sj_string_new_text("null");
+}
+
+SJson *sj_null_new()
+{
+    SJson *json;
+    json = sj_new();
+    if (!json)return NULL;
+    json->sjtype = SJVT_NULL;
+    json->json_free = sj_null_free;
+    json->get_string = sj_null_to_json_string;
+    return json;
+}
 /*eol@eof*/

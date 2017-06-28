@@ -20,7 +20,7 @@ typedef struct SJson_S
         SJList *array;  /**<an array or values or an array of pairs*/
         SJString *string;
     }v;
-    char *(*get_string)(struct SJson_S *json);
+    SJString *(*get_string)(struct SJson_S *json);
     void  (*json_free)(struct SJson_S *json);
 }SJson;
 
@@ -30,6 +30,13 @@ typedef struct SJson_S
  * @return NULL on error or an SJS pointer
  */
 SJson *sj_load(const char *filename);
+
+/**
+ * @brief write a json value as a formatted json string to file
+ * @param json the struct to convert and write
+ * @param filename the file to overwrite
+ */
+void sj_save(SJson *json,char *filename);
 
 /**
  * @brief allocate a new empty json object
@@ -63,5 +70,25 @@ void sj_echo(SJson *json);
  * @return NULL on error or the newly allocated and set SJson object
  */
 SJson *sj_string_to_value(SJString *string);
+
+/**
+ * @brief make a new json value that is NULL
+ * @return NULL on error (Ironically) or a new json that holds a NULL value
+ */
+SJson *sj_null_new();
+
+/**
+ * @brief get the contents of the string back formatted and escaped for json
+ * @param string the json string to conver
+ * @return NULL on error or the converted string
+ */
+SJString *sj_string_to_json_string(SJson *string);
+
+/**
+ * @brief convert the json value into a json string
+ * @param json the value to convert
+ * @return NULL on error or the json string
+ */
+SJString *sj_value_to_json_string(SJson *json);
 
 #endif

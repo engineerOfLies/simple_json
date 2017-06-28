@@ -69,8 +69,9 @@ SJson *sj_object_new()
     object = sj_new();
     if (!object)return NULL;
     object->sjtype = SJVT_Object;
+    object->v.array = sj_list_new();
     object->json_free = sj_object_free;
-    object->get_string = sj_object_get_string;
+    object->get_string = sj_object_to_json_string;
     return object;
 }
 
@@ -117,9 +118,26 @@ char *sj_object_get_value_as_string(SJson *object,char *key)
     return sj_string_get_text(value->v.string);
 }
 
-char *sj_object_get_string(SJson *object)
+SJString *sj_object_to_json_string(SJson *object)
 {
-    return NULL;
+    SJString *string;
+    SJPair *pair;
+    int i, count;
+    string = sj_string_new_text("{");
+    //for each
+    count = sj_list_get_count(object->v.array);
+    for (i = 0; i < count; i++)
+    {
+        pair = sj_list_get_nth(object->v.array,i);
+        if (!pair)continue;
+        sj_string_append(string,"\"");
+        sj_string_concat(string,pair->key);
+        sj_string_append(string,"\":");
+        sj_string_concat(string,sj_value_to_json_string(pair->value));
+        if (i +1 < count)sj_string_append(string,",");
+    }
+    sj_string_append(string,"}");
+    return string;
 }
 
 /*eol@eof*/

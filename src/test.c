@@ -9,9 +9,12 @@ int main(int argc, char *argv[])
     printf("Loading Json file %s\n",argv[1]);
     
     json = sj_load(argv[1]);
-    printf("json loaded:\n");
     
+    printf("json loaded:\n");
     sj_echo(json);
+    
+    printf("\nsaving json to file\n");
+    sj_save(json,"output.json");
     
     printf("freeing json structure\n");
     sj_free(json);

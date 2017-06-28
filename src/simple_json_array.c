@@ -24,7 +24,7 @@ SJson *sj_array_new()
     if (!array)return NULL;
     array->sjtype = SJVT_Array;
     array->json_free = sj_array_free;
-    array->get_string = sj_array_as_string;
+    array->get_string = sj_array_to_json_string;
     array->v.array = sj_list_new();
     return array;
 }
@@ -67,10 +67,24 @@ SJString *sj_array_get_nth_as_string(SJson *array,int n)
     return item->v.string;
 }
 
-char *sj_array_as_string(SJson *array)
+SJString *sj_array_to_json_string(SJson *array)
 {
+    SJString *string;
+    SJson *value;
+    int i, count;
     if (!sj_array_check(array))return NULL;
-    return NULL;
+    string = sj_string_new_text("[");
+    //for each
+    count = sj_list_get_count(array->v.array);
+    for (i = 0; i < count; i++)
+    {
+        value = sj_list_get_nth(array->v.array,i);
+        if (!value)continue;
+        sj_string_concat(string,sj_value_to_json_string(value));
+        if (i +1 < count)sj_string_append(string,",");
+    }
+    sj_string_append(string,"]");
+    return string;
 }
 
 /*eol@eof*/

@@ -85,6 +85,7 @@ void sj_list_append(SJList *list,void *data)
     if (!list)
     {
         sj_set_error("no list provided");
+        printf("no list provided\n");
         return;
     }
     if (list->count >= list->size)
@@ -93,6 +94,7 @@ void sj_list_append(SJList *list,void *data)
         if (!list)
         {
             sj_set_error("append failed due to lack of memory");
+            printf("append failed due to lack of memory\n");
             return;
         }
     }

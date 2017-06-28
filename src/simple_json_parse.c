@@ -67,12 +67,10 @@ SJString *sj_parse_string(jsParse *parse)
     }
     if (quoted)
     {
-        printf("this is a Quote wrapped string\n");
         p = get_next_unescaped_char(parse->position, '"');
     }
     else
     {
-        printf("this is NOT a Quote wrapped string!!!!!!!!!!\n");
         p = get_next_unescaped_char(parse->position, ',');
         p1 = get_next_unescaped_char(parse->position, ']');
         p2 = get_next_unescaped_char(parse->position, '}');
@@ -96,7 +94,6 @@ SJString *sj_parse_string(jsParse *parse)
     if (p == NULL)
     {
         sj_set_error("sj_parse_string: no end delimeter");
-        printf("sj_parse_string: no end delimeter");
         sj_string_free(string);
         return NULL;
     }
@@ -104,13 +101,11 @@ SJString *sj_parse_string(jsParse *parse)
     if (str_length <= 0)
     {
         sj_set_error("sj_parse_string: string is a zero or negative length");
-        printf("sj_parse_string: string is a zero or negative length");
         sj_string_free(string);
         return NULL;
     }
     sj_string_set_limit(string,parse->position,str_length);
     parse->position = p + quoted;
-    printf("parsed string: %s\n",string->text);
     return string;
 }
 
@@ -118,17 +113,24 @@ SJson *sj_parse_value(jsParse *parse)
 {
     SJString *string;
     if (overseek_check_fail(parse))return NULL;
-    printf("-> parsing value (%c)....",*parse->position);
+    if (strncmp(parse->position,"null",4)==0)
+    {
+        switch (parse->position[4])
+        {
+            case ',':// NULL value in an array
+            case ']':// NULL value as the last value for an array
+            case '}':// NULL value as the last value for an object
+                parse->position+=4;
+                return sj_null_new();
+        }
+    }
     switch (*parse->position)
     {
         case '{':
-            printf("as object\n");
             return sj_parse_object(parse);
         case '[':
-            printf("as array\n");
             return sj_parse_array(parse);
     }
-    printf("as string\n");
     string = sj_parse_string(parse);
     if (string == NULL)return NULL;
     return sj_string_to_value(string);
@@ -152,29 +154,25 @@ SJson *sj_parse_array(jsParse *parse)
 
     //chomp first character
     parse->position++;
-    printf("\narray parsing begin:\n");
     do
     {
         value = sj_parse_value(parse);
         if (value == NULL)
         {
-            printf("--=== array value failed to parse! ===--\n");
+            sj_set_error("--=== array value failed to parse! ===--\n");
             sj_array_free(json);
             return NULL;
         }
         
         sj_array_append(json,value);
         
-        printf("next array character: %c\n",*parse->position);
         if (*parse->position == ',')
         {
-            printf("another item for this array\n");
             parse->position++;
         }
     }
     while(*parse->position != ']');
     parse->position++;
-    printf("array end\n\n");
     return json;
 }
 
@@ -197,7 +195,6 @@ SJson *sj_parse_object(jsParse *parse)
 
     //chomp first character
     parse->position++;
-    printf("\nparsing object pairs:\n");
     do
     {
         key = sj_parse_string(parse);
@@ -213,7 +210,7 @@ SJson *sj_parse_object(jsParse *parse)
 
         if (value == NULL)
         {
-            printf("--=== array value failed to parse! ===--\n");
+            sj_set_error("--=== array value failed to parse! ===--");
             sj_string_free(key);
             sj_object_free(json);
             return NULL;
@@ -221,16 +218,13 @@ SJson *sj_parse_object(jsParse *parse)
         sj_object_insert(json,key->text,value);
         sj_string_free(key);
         
-        printf("next object character: %c\n",*parse->position);
         if (*parse->position == ',')
         {
-            printf("another pair for this object\n");
             parse->position++;
         }
     }
     while(*parse->position != '}');
     parse->position++;
-    printf("object end\n\n");
     return json;
 }
 

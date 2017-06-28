@@ -1,5 +1,6 @@
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include "simple_json.h"
 #include "simple_json_string.h"
 #include "simple_json_error.h"
@@ -148,7 +149,7 @@ SJson *sj_string_to_value(SJString *string)
     json->v.string = string;
     json->sjtype = SJVT_String;
     json->json_free = sj_string_value_free;
-    json->get_string = sj_string_value_get_string;
+    json->get_string = sj_string_to_json_string;
     return json;
 }
 
@@ -156,6 +157,68 @@ char *sj_string_get_text(SJString *string)
 {
     if (!string)return NULL;
     return string->text;
+}
+
+void sj_string_concat(SJString *string1,SJString *string2)
+{
+    char *newtext;
+    size_t size;
+    if ((!string1) || (!string2))return;// no op
+    size = string1->size + string2->size;
+    if (size <= 0)return;
+    newtext=(char *)malloc(sizeof(char)*size);
+    if (!newtext)
+    {
+        sj_set_error("sj_string_concat:failed to allocate space for new string\n");
+        return;
+    }
+    memset(newtext,0,sizeof(char)*size);
+    snprintf(newtext,size,"%s%s",string1->text,string2->text);
+    if (string1->text)
+    {
+        free(string1->text);
+    }
+    string1->text = newtext;
+    string1->size = size;
+}
+
+void sj_string_append(SJString *string,char *buffer)
+{
+    char *newtext;
+    size_t size;
+    if ((!string) || (!buffer))return;// no op
+    size = string->size + strlen(buffer);
+    if (size <= 0)return;
+    newtext=(char *)malloc(sizeof(char)*size);
+    if (!newtext)
+    {
+        sj_set_error("sj_string_append:failed to allocate space for new string\n");
+        return;
+    }
+    memset(newtext,0,sizeof(char)*size);
+    snprintf(newtext,size,"%s%s",string->text,buffer);
+    if (string->text)
+    {
+        free(string->text);
+    }
+    string->text = newtext;
+    string->size = size;
+}
+
+SJString *sj_string_to_json_string(SJson *string)
+{
+    SJString *json;
+    if (!string)return NULL;
+    if (string->sjtype != SJVT_String)
+    {
+        sj_set_error("sj_string_to_json_string: input string not a string type");
+        return NULL;
+    }
+    json = sj_string_new_text("\"");
+    if (!json)return NULL;
+    sj_string_concat(json,string->v.string);
+    sj_string_append(json,"\"");
+    return json;
 }
 
 /*eol@eof*/

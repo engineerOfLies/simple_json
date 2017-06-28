@@ -25,8 +25,9 @@ void sj_object_insert(SJson *object,char *key,SJson *value);
 /**
  * @brief get the json object back as a formatted json string
  * @param object the object to convert
- * @return an allocated character array populated with the json string, or NULL on error
+ * @return NULL on error, or a string encapsulated ith {}
  */
-char *sj_object_get_string(SJson *object);
+SJString *sj_object_to_json_string(SJson *object);
+
 
 #endif
