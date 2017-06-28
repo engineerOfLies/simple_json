@@ -55,4 +55,13 @@ char *sj_to_string(SJson *json);
  * @param json the json struct to print
  */
 void sj_echo(SJson *json);
+
+/**
+ * @brief make a jason value object out of a string
+ * @param string the string to convert
+ * @note the original string is put into the SJson object and is no longer owned by you do not free it!
+ * @return NULL on error or the newly allocated and set SJson object
+ */
+SJson *sj_string_to_value(SJString *string);
+
 #endif

@@ -1,5 +1,6 @@
 #include <string.h>
 #include <stdlib.h>
+#include "simple_json.h"
 #include "simple_json_string.h"
 #include "simple_json_error.h"
 
@@ -123,6 +124,32 @@ void sj_string_set_limit(SJString *string,char *s,unsigned long l)
     }
     strncpy(string->text,s,l);
     string->text[l] = '\0';
+}
+
+void sj_string_value_free(SJson *json)
+{
+    if (!json)return;
+    sj_string_free(json->v.string);
+    free(json);
+}
+
+char *sj_string_value_get_string(SJson *json)
+{
+    if (!json)return NULL;
+    return json->v.string->text;
+}
+
+SJson *sj_string_to_value(SJString *string)
+{
+    SJson *json;
+    if (!string)return NULL;
+    json = sj_new();
+    if (!json)return NULL;
+    json->v.string = string;
+    json->sjtype = SJVT_String;
+    json->json_free = sj_string_value_free;
+    json->get_string = sj_string_value_get_string;
+    return json;
 }
 
 char *sj_string_get_text(SJString *string)
