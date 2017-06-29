@@ -47,6 +47,26 @@ SJString *sj_string_new_text(char *s)
     return string;
 }
 
+SJString *sj_string_new_integer(int i)
+{
+    char buffer[128];
+    sprintf(buffer,"%i",i);
+    return sj_string_new_text(buffer);
+}
+
+SJString *sj_string_new_float(float f)
+{
+    char buffer[128];
+    sprintf(buffer,"%f",f);
+    return sj_string_new_text(buffer);
+}
+
+SJString *sj_string_new_bool(int i)
+{
+    if (i)return sj_string_new_text("true");
+    return sj_string_new_text("false");
+}
+
 void sj_string_free(SJString *string)
 {
     if (!string)return;
@@ -219,6 +239,63 @@ SJString *sj_string_to_json_string(SJson *string)
     sj_string_concat(json,string->v.string);
     sj_string_append(json,"\"");
     return json;
+}
+
+int sj_string_as_integer(SJString *string,int *output)
+{
+    int value;
+    if (!string)return 0;
+    if (!string->text)return 0;
+    value = atoi(string->text);
+    if (!value)// if we have a zero, make sure the string itself is not just zero
+    {
+        if (string->text[0] != '0')return 0;
+    }
+    if (output)
+    {
+        *output = value;
+    }
+    return 1;
+}
+
+int sj_string_as_float(SJString *string,float *output)
+{
+    double value;
+    if (!string)return 0;
+    if (!string->text)return 0;
+    value = atoi(string->text);
+    if (value == 0.0)// if we have a zero, make sure the string itself is not just zero
+    {
+        if (string->text[0] != '0')return 0;
+    }
+    if (output)
+    {
+        *output = (float)value;
+    }
+    return 1;
+}
+
+int sj_string_as_bool(SJString *string,short int *output)
+{
+    if (!string)return 0;
+    if (!string->text)return 0;
+    if ((strcmp(string->text,"true")==0) ||
+        (strcmp(string->text,"TRUE")==0) ||
+        (strcmp(string->text,"True")==0) ||
+        (strcmp(string->text,"1\0")==0))
+    {
+        if (output)*output = 1;
+        return 1;
+    }
+    if ((strcmp(string->text,"false")==0) ||
+        (strcmp(string->text,"FALSE")==0) ||
+        (strcmp(string->text,"False")==0) ||
+        (strcmp(string->text,"0\0")==0))
+    {
+        if (output)*output = 0;
+        return 1;
+    }
+    return 0;
 }
 
 /*eol@eof*/

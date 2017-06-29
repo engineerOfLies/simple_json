@@ -20,6 +20,12 @@ SJString *sj_string_new();
  */
 SJString *sj_string_new_text(char *s);
 
+SJString *sj_string_new_integer(int i);
+
+SJString *sj_string_new_float(float i);
+
+SJString *sj_string_new_bool(int i);
+
 /**
  * @brief free an SJString
  * @param string the string to free
@@ -69,5 +75,30 @@ void sj_string_append(SJString *string,char *buffer);
  * @return NULL on error or the character array containing the string text
  */
 char *sj_string_get_text(SJString *string);
+
+/**
+ * @brief get the integer value if the string is a numer
+ * @param string the string to use as an integer
+ * @param output [optional] where to store the integer value.  This is untouched if the string was not an integer
+ * @return 0 if the string was not an integer or 1 if it was
+ */
+int sj_string_as_integer(SJString *string,int *output);
+
+/**
+ * @brief get the float value if the string is a numer
+ * @param string the string to use as a float
+ * @param output [optional] where to store the float value.  This is untouched if the string was not a float
+ * @return 0 if the string was not an float or 1 if it was
+ */
+int sj_string_as_float(SJString *string,float *output);
+
+/**
+ * @brief get the bool value if the string is a bool
+ * @param string the string to use as a bool
+ * @param output [optional] where to store the boolean value.  This is untouched if the string was not a bool
+ * @return 0 if the string was not an bool or 1 if it was
+ */
+int sj_string_as_bool(SJString *string,short int *output);
+
 
 #endif

@@ -1,12 +1,7 @@
 #ifndef __SIMPLE_JSON_OBJECT_H__
 #define __SIMPLE_JSON_OBJECT_H__
 
-
-/**
- * @brief allocate a new empty json object
- * @return NULL on memory allocation error, an empty SJson otherwise
- */
-SJson *sj_object_new();
+#include "simple_json_value.h"
 
 /**
  * @brief free a previously allocated json object
@@ -14,12 +9,6 @@ SJson *sj_object_new();
  */
 void sj_object_free(SJson *object);
 
-/**
- * @brief insert data into a json object
- * @param object the json object to insert into
- * @param key the string to identify the object value with
- * @param value the value of the key
- */
 void sj_object_insert(SJson *object,char *key,SJson *value);
 
 /**

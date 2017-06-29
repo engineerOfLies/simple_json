@@ -2,9 +2,29 @@
 #include <stdlib.h>
 #include <string.h>
 #include "simple_json.h"
+#include "simple_json_string.h"
 #include "simple_json_parse.h"
 #include "simple_json_error.h"
 
+SJson *sj_new_str(char *str)
+{
+    return sj_string_to_value(sj_string_new_text(str));
+}
+
+SJson *sj_new_int(int i)
+{
+    return sj_string_to_value(sj_string_new_integer(i));
+}
+
+SJson *sj_new_float(float f)
+{
+    return sj_string_to_value(sj_string_new_float(f));
+}
+
+SJson *sj_new_bool(int b)
+{
+    return sj_string_to_value(sj_string_new_bool(b));
+}
 
 long get_file_Size(FILE *file)
 {
@@ -148,4 +168,71 @@ SJson *sj_null_new()
     json->get_string = sj_null_to_json_string;
     return json;
 }
+
+const char *sj_get_string_value(SJson *json)
+{
+    if ((!json)||(json->sjtype != SJVT_String))return NULL;
+    return json->v.string->text;
+}
+
+int sj_get_integer_value(SJson *json,int *i)
+{
+    if ((!json)||(json->sjtype != SJVT_String))return 0;
+    return sj_string_as_integer(json->v.string,i);
+}
+
+int sj_get_float_value(SJson *json,float *f)
+{
+    if ((!json)||(json->sjtype != SJVT_String))return 0;
+    return sj_string_as_float(json->v.string,f);
+}
+
+int sj_get_bool_value(SJson *json,short int *b)
+{
+    if ((!json)||(json->sjtype != SJVT_String))return 0;
+    return sj_string_as_bool(json->v.string,b);
+}
+
+int sj_is_array(SJson *json)
+{
+    if (!json)return 0;
+    if (json->sjtype != SJVT_Object)return 0;
+    return 1;
+}
+
+int sj_is_object(SJson *json)
+{
+    if (!json)return 0;
+    if (json->sjtype != SJVT_Array)return 0;
+    return 1;
+}
+
+int sj_is_string(SJson *json)
+{
+    if (!json)return 0;
+    if (json->sjtype != SJVT_String)return 0;
+    return 1;
+}
+
+int sj_is_number(SJson *json)
+{
+    if (!json)return 0;
+    if (json->sjtype != SJVT_String)return 0;
+    return sj_string_as_float(json->v.string,NULL);
+}
+
+int sj_is_bool(SJson *json)
+{
+    if (!json)return 0;
+    if (json->sjtype != SJVT_String)return 0;
+    return sj_string_as_bool(json->v.string,NULL);
+}
+
+int sj_is_null(SJson *json)
+{
+    if (!json)return 0;
+    if (json->sjtype != SJVT_NULL)return 0;
+    return 1;
+}
+
 /*eol@eof*/

@@ -44,6 +44,12 @@ void sj_array_free(SJson *array)
     sj_list_delete(array->v.array);
 }
 
+int sj_array_get_count(SJson *array)
+{
+    if (!sj_array_check(array))return 0;
+    return sj_list_get_count(array->v.array);
+}
+
 void sj_array_append(SJson *array,SJson *value)
 {
     if (!sj_array_check(array))return;

@@ -1,7 +1,7 @@
 #ifndef __SIMPLE_JSON_ARRAY_H__
 #define __SIMPLE_JSON_ARRAY_H__
 
-#include "simple_json.h"
+#include "simple_json_value.h"
 #include "simple_json_list.h"
 #include "simple_json_string.h"
 
@@ -11,12 +11,6 @@ void sj_array_free(SJson *array);
 
 void sj_array_append(SJson *array,SJson *value);
 
-/**
- * @brief retrieve the nth element in the json array
- * @param array the array to search through
- * @param n the index of the element to get
- * @return NULL on error (check sj_get_error()) or the SJson value otherwise
- */
 SJson *sj_array_get_nth(SJson *array,int n);
 
 /**
