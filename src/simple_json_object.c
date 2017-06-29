@@ -18,10 +18,13 @@ int sj_object_check(SJson *json)
     return 1;
 }
 
+/**
+ * @brief an object is a list of key/value pairs
+ */
 typedef struct
 {
-    SJString *key;
-    SJson *value;
+    SJString *key;  /**<the identifying key*/
+    SJson *value;   /**<the value the key references*/
 }SJPair;
 
 void sj_pair_free(SJPair *pair)

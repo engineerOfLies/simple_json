@@ -1,18 +1,29 @@
 #ifndef __SIMPLE_JSON_LIST_H__
 #define __SIMPLE_JSON_LIST_H__
 
+/**
+ * @brief simple datatype abstracting the data held.
+ */
 typedef struct
 {
-    void *data;
+    void *data; /**<pointer to the data being accessed*/
 }SJListElementData;
 
+/**
+ * @brief this is a simple list structure intended to hold an arbitrary number of elements
+ * list will automatically grow as space is needed to accomodate more elements
+ */
 typedef struct
 {
-    SJListElementData *elements;
-    unsigned int size;
-    unsigned int count;
+    SJListElementData *elements;    /**<a pointer to the array of the data*/
+    unsigned int size;              /**<how much memory has been allocated*/
+    unsigned int count;             /**<how many elements are in use*/
 }SJList;
 
+/**
+ * @brief create a new list
+ * @return NULL on memory error or an initialized list
+ */
 SJList *sj_list_new();
 
 /**

@@ -7,11 +7,14 @@
 #include "simple_json_string.h"
 #include "simple_json_error.h"
 
+/**
+ * @brief structure keeps track of the buffer being parsed and the position last used
+ */
 typedef struct
 {
-    char *buffer;
-    char *position;
-    char *end;
+    char *buffer;   /**<the buffer being parsed*/
+    char *position; /**<the current position being parsed*/
+    char *end;      /**<the last position to prevent over seek*/
 }jsParse;
 
 SJson *sj_parse_object(jsParse *parse);

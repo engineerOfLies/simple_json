@@ -1,10 +1,14 @@
 #ifndef __SIMPLE_JSON_STRING_H__
 #define __SIMPLE_JSON_STRING_H__
 
+/**
+ * @brief a basic structure that keeps track of a string and its length
+ * Automatically grows to accomodate longer strings
+ */
 typedef struct
 {
-    char *text;
-    int size;
+    char *text; /**<pointer to the character data*/
+    int size;   /**<how much data base been allocated*/
 }SJString;
 
 /**
