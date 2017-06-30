@@ -31,7 +31,3 @@ simple_json_string.o: simple_json_string.c ../include/simple_json.h \
  ../include/simple_json_value.h ../include/simple_json_string.h \
  ../include/simple_json_object.h ../include/simple_json_error.h \
  ../include/simple_json_string.h ../include/simple_json_error.h
-test.o: test.c ../include/simple_json.h ../include/simple_json_list.h \
- ../include/simple_json_array.h ../include/simple_json_value.h \
- ../include/simple_json_string.h ../include/simple_json_object.h \
- ../include/simple_json_error.h

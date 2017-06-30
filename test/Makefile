@@ -10,18 +10,20 @@
 #
 
 # Linux
-PROJECT = sj
+PROJECT = sj_test
 CC      = gcc
 #CC      = clang
 
 OBJECTS = $(patsubst %.c,%.o,$(wildcard *.c))
 
 LIB_PATH = ../libs
+STATIC_LIBS = libsj.a
+LDFLAGS = -L$(LIB_PATH) $(foreach d, $(STATIC_LIBS),$(LIB_PATH)/$d)
 
 INC_PATHS = ../include
 INC_PARAMS =$(foreach d, $(INC_PATHS), -I$d)
 
-LFLAGS = -g  -shared -Wl,-soname,lib$(PROJECT).so.1 -o $(LIB_PATH)/lib$(PROJECT).so.1 -lm
+LFLAGS = -g  -o ../$(PROJECT) -lm
 CFLAGS = -g  -fPIC -Wall -pedantic -std=gnu99 -fgnu89-inline -Wno-unknown-pragmas -Wno-variadic-macros
 # -fgnu89-inline 
 # -std=gnu99 
@@ -34,7 +36,7 @@ DOXYGEN = doxygen
 #
 
 $(PROJECT): $(OBJECTS)
-	$(CC) $(OBJECTS) $(LFLAGS) $(INC_PARAMS)
+	$(CC) $(OBJECTS) $(LFLAGS) $(LDFLAGS) $(INC_PARAMS)
 
 docs:
 	$(DOXYGEN) ../docs/Doxyfile
