@@ -160,6 +160,13 @@ char *sj_string_value_get_string(SJson *json)
     return json->v.string->text;
 }
 
+SJson *sj_string_copy(SJson *json)
+{
+    if (!json)return NULL;
+    if (json->sjtype != SJVT_String)return NULL;
+    return sj_new_str(json->v.string->text);
+}
+
 SJson *sj_string_to_value(SJString *string)
 {
     SJson *json;
@@ -170,6 +177,7 @@ SJson *sj_string_to_value(SJString *string)
     json->sjtype = SJVT_String;
     json->json_free = sj_string_value_free;
     json->get_string = sj_string_to_json_string;
+    json->copy = sj_string_copy;
     return json;
 }
 

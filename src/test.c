@@ -41,6 +41,14 @@ int main(int argc, char *argv[])
     printf("json created:\n");
     sj_echo(json);
     
+    printf("copying json\n");
+    sub = sj_copy(json);
+    
+    printf("copied json:\n");
+    sj_echo(sub);
+    
+    sj_free(sub);
+    
     printf("retrieving data from json:\n");
     sub = sj_object_get_value(json,"Vector2D");
     if (!sub)

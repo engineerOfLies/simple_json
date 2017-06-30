@@ -106,6 +106,13 @@ SJson *sj_new()
     return json;
 }
 
+SJson *sj_copy(SJson *json)
+{
+    if (!json)return NULL;
+    if (!json->copy)return NULL;
+    return json->copy(json);
+}
+
 void sj_free(SJson *json)
 {
     if (!json)return;
@@ -156,6 +163,11 @@ SJString *sj_value_to_json_string(SJson *json)
 SJString *sj_null_to_json_string(SJson *json)
 {
     return sj_string_new_text("null");
+}
+
+SJson *sj_null_copy(SJson *json)
+{
+    return sj_null_new();
 }
 
 SJson *sj_null_new()
@@ -234,5 +246,7 @@ int sj_is_null(SJson *json)
     if (json->sjtype != SJVT_NULL)return 0;
     return 1;
 }
+
+
 
 /*eol@eof*/

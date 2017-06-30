@@ -66,6 +66,24 @@ void sj_object_insert(SJson *object,char *key,SJson *value)
     sj_list_append(object->v.array,pair);
 }
 
+SJson *sj_object_copy(SJson *json)
+{
+    SJPair *pair;
+    SJson *object;
+    int i,count;
+    if (!json)return NULL;
+    object = sj_object_new();
+    if (!object)return NULL;
+    count = sj_list_get_count(json->v.array);
+    for (i = 0; i < count; i++)
+    {
+        pair = sj_list_get_nth(json->v.array,i);
+        if (!pair)continue;
+        sj_object_insert(object,pair->key->text,sj_copy(pair->value));
+    }
+    return object;
+}
+
 SJson *sj_object_new()
 {
     SJson *object;
@@ -75,6 +93,7 @@ SJson *sj_object_new()
     object->v.array = sj_list_new();
     object->json_free = sj_object_free;
     object->get_string = sj_object_to_json_string;
+    object->copy = sj_object_copy;
     return object;
 }
 

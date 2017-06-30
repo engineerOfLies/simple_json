@@ -17,6 +17,24 @@ int sj_array_check(SJson *json)
     return 1;
 }
 
+SJson *sj_array_copy(SJson *json)
+{
+    SJson *item;
+    SJson *array;
+    int i,count;
+    if (!json)return NULL;
+    array = sj_array_new();
+    if (!array)return NULL;
+    count = sj_list_get_count(json->v.array);
+    for (i = 0; i < count; i++)
+    {
+        item = (SJson *)sj_list_get_nth(json->v.array,i);
+        if (!item)continue;
+        sj_array_append(array,sj_copy(item));
+    }
+    return array;
+}
+
 SJson *sj_array_new()
 {
     SJson *array;
@@ -25,6 +43,7 @@ SJson *sj_array_new()
     array->sjtype = SJVT_Array;
     array->json_free = sj_array_free;
     array->get_string = sj_array_to_json_string;
+    array->copy = sj_array_copy;
     array->v.array = sj_list_new();
     return array;
 }

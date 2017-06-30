@@ -13,6 +13,14 @@
 void sj_free(SJson *sjs);
 
 /**
+ * @brief make a duplicate of a json structure.
+ * @note the duplicate needs to be sj_free()'d separately
+ * @param json the json to be duplicated
+ * @return NULL on error, or a Duplicate json
+ */
+SJson *sj_copy(SJson *json);
+
+/**
  * @brief loads and parses a json file
  * @param filename the file to parse
  * @return NULL on error or an SJS pointer
