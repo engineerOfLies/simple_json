@@ -227,9 +227,6 @@
     <member refid="d9/dc8/simple__json__string_8c_1a2e0ed36958f2d1c5ef648d777f584a30" kind="function"><name>sj_string_as_float</name></member>
     <member refid="d9/dc8/simple__json__string_8c_1a772abb082e3d8763757881e15d537000" kind="function"><name>sj_string_as_bool</name></member>
   </compound>
-  <compound refid="d8/db9/test_8c" kind="file"><name>test.c</name>
-    <member refid="d8/db9/test_8c_1a0ddf1224851353fc92bfbff6f499fa97" kind="function"><name>main</name></member>
-  </compound>
   <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>/home/djkehoe/git/simple_json/include</name>
   </compound>
   <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>/home/djkehoe/git/simple_json/src</name>

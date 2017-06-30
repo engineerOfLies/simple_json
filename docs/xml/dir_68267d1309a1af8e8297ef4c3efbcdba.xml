@@ -9,7 +9,6 @@
     <innerfile refid="d1/d00/simple__json__object_8c">simple_json_object.c</innerfile>
     <innerfile refid="d1/d6a/simple__json__parse_8c">simple_json_parse.c</innerfile>
     <innerfile refid="d9/dc8/simple__json__string_8c">simple_json_string.c</innerfile>
-    <innerfile refid="d8/db9/test_8c">test.c</innerfile>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
