@@ -147,7 +147,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/djkehoe/git/simple_json/include/simple_json_value.h" line="29" column="1"/>
+        <location file="/home/djkehoe/git/simple_json/include/simple_json_value.h" line="30" column="1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -163,7 +163,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/djkehoe/git/simple_json/include/simple_json_value.h" line="35" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json.c" bodystart="96" bodyend="107"/>
+        <location file="/home/djkehoe/git/simple_json/include/simple_json_value.h" line="36" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json.c" bodystart="96" bodyend="107"/>
       </memberdef>
       <memberdef kind="function" id="de/d40/simple__json__value_8h_1ad1ef511c3463cdecef2f38796af1e81e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -180,7 +180,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/djkehoe/git/simple_json/include/simple_json_value.h" line="38" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json.c" bodystart="109" bodyend="114"/>
+        <location file="/home/djkehoe/git/simple_json/include/simple_json_value.h" line="39" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json.c" bodystart="116" bodyend="121"/>
       </memberdef>
       <memberdef kind="function" id="de/d40/simple__json__value_8h_1aac7f9dff7a04bf6a7a84dddcd60088ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="de/d40/simple__json__value_8h_1a3aa063084e242f19976eb9578480d4e2" kindref="member">SJson</ref> *</type>
@@ -207,7 +207,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/djkehoe/git/simple_json/include/simple_json_value.h" line="46" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json_string.c" bodystart="163" bodyend="174"/>
+        <location file="/home/djkehoe/git/simple_json/include/simple_json_value.h" line="47" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json_string.c" bodystart="170" bodyend="182"/>
       </memberdef>
       <memberdef kind="function" id="de/d40/simple__json__value_8h_1a399e36877442aa864de7732de1aec2c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="d4/d1f/structSJString" kindref="compound">SJString</ref> *</type>
@@ -233,7 +233,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/djkehoe/git/simple_json/include/simple_json_value.h" line="53" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json_string.c" bodystart="228" bodyend="242"/>
+        <location file="/home/djkehoe/git/simple_json/include/simple_json_value.h" line="54" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json_string.c" bodystart="236" bodyend="250"/>
       </memberdef>
       <memberdef kind="function" id="de/d40/simple__json__value_8h_1ace951db871c87f7cc400d4b5201092e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="d4/d1f/structSJString" kindref="compound">SJString</ref> *</type>
@@ -259,7 +259,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/djkehoe/git/simple_json/include/simple_json_value.h" line="60" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json.c" bodystart="149" bodyend="154"/>
+        <location file="/home/djkehoe/git/simple_json/include/simple_json_value.h" line="61" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json.c" bodystart="156" bodyend="161"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -291,20 +291,21 @@
 <codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>}<ref refid="d9/dca/structSJson__S_1a34c41be372d7bbe614b312cef2051b99" kindref="member">v</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="27" refid="d9/dca/structSJson__S_1afd320740fab795e7063e89157a23c511" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d4/d1f/structSJString" kindref="compound">SJString</ref><sp/>*(*get_string)(</highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="d9/dca/structSJson__S" kindref="compound">SJson_S</ref><sp/>*json);<sp/><sp/></highlight></codeline>
 <codeline lineno="28" refid="d9/dca/structSJson__S_1a8bd24b6b85325a01b8bae6c5899583f2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/><sp/>(*<ref refid="d9/dca/structSJson__S_1a8bd24b6b85325a01b8bae6c5899583f2" kindref="member">json_free</ref>)(</highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="d9/dca/structSJson__S" kindref="compound">SJson_S</ref><sp/>*json);<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="29"><highlight class="normal">}<ref refid="de/d40/simple__json__value_8h_1a3aa063084e242f19976eb9578480d4e2" kindref="member">SJson</ref>;</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><ref refid="d9/dca/structSJson__S" kindref="compound">SJson</ref><sp/>*<ref refid="de/d40/simple__json__value_8h_1a17b72c84ece910c9365592ac297fa52b" kindref="member">sj_new</ref>();</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">/*forward<sp/>declaration,<sp/>documented<sp/>in<sp/>simple_json.h*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/d40/simple__json__value_8h_1ad1ef511c3463cdecef2f38796af1e81e" kindref="member">sj_free</ref>(<ref refid="d9/dca/structSJson__S" kindref="compound">SJson</ref><sp/>*sjs);</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"></highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><ref refid="d9/dca/structSJson__S" kindref="compound">SJson</ref><sp/>*<ref refid="de/d40/simple__json__value_8h_1aac7f9dff7a04bf6a7a84dddcd60088ec" kindref="member">sj_string_to_value</ref>(<ref refid="d4/d1f/structSJString" kindref="compound">SJString</ref><sp/>*</highlight><highlight class="keywordtype">string</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"></highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><ref refid="d4/d1f/structSJString" kindref="compound">SJString</ref><sp/>*<ref refid="de/d40/simple__json__value_8h_1a399e36877442aa864de7732de1aec2c4" kindref="member">sj_string_to_json_string</ref>(<ref refid="d9/dca/structSJson__S" kindref="compound">SJson</ref><sp/>*</highlight><highlight class="keywordtype">string</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"></highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><ref refid="d4/d1f/structSJString" kindref="compound">SJString</ref><sp/>*<ref refid="de/d40/simple__json__value_8h_1ace951db871c87f7cc400d4b5201092e5" kindref="member">sj_value_to_json_string</ref>(<ref refid="d9/dca/structSJson__S" kindref="compound">SJson</ref><sp/>*json);</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"></highlight></codeline>
-<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="29" refid="d9/dca/structSJson__S_1a3910fed04a197e779815cad2b0535f62" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="d9/dca/structSJson__S" kindref="compound">SJson_S</ref><sp/>*(*copy)(</highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="d9/dca/structSJson__S" kindref="compound">SJson_S</ref><sp/>*json);<sp/><sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="normal">}<ref refid="de/d40/simple__json__value_8h_1a3aa063084e242f19976eb9578480d4e2" kindref="member">SJson</ref>;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><ref refid="d9/dca/structSJson__S" kindref="compound">SJson</ref><sp/>*<ref refid="de/d40/simple__json__value_8h_1a17b72c84ece910c9365592ac297fa52b" kindref="member">sj_new</ref>();</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">/*forward<sp/>declaration,<sp/>documented<sp/>in<sp/>simple_json.h*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/d40/simple__json__value_8h_1ad1ef511c3463cdecef2f38796af1e81e" kindref="member">sj_free</ref>(<ref refid="d9/dca/structSJson__S" kindref="compound">SJson</ref><sp/>*sjs);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><ref refid="d9/dca/structSJson__S" kindref="compound">SJson</ref><sp/>*<ref refid="de/d40/simple__json__value_8h_1aac7f9dff7a04bf6a7a84dddcd60088ec" kindref="member">sj_string_to_value</ref>(<ref refid="d4/d1f/structSJString" kindref="compound">SJString</ref><sp/>*</highlight><highlight class="keywordtype">string</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><ref refid="d4/d1f/structSJString" kindref="compound">SJString</ref><sp/>*<ref refid="de/d40/simple__json__value_8h_1a399e36877442aa864de7732de1aec2c4" kindref="member">sj_string_to_json_string</ref>(<ref refid="d9/dca/structSJson__S" kindref="compound">SJson</ref><sp/>*</highlight><highlight class="keywordtype">string</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><ref refid="d4/d1f/structSJString" kindref="compound">SJString</ref><sp/>*<ref refid="de/d40/simple__json__value_8h_1ace951db871c87f7cc400d4b5201092e5" kindref="member">sj_value_to_json_string</ref>(<ref refid="d9/dca/structSJson__S" kindref="compound">SJson</ref><sp/>*json);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="/home/djkehoe/git/simple_json/include/simple_json_value.h"/>
   </compounddef>

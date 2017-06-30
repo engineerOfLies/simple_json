@@ -24,6 +24,7 @@
     <member refid="d9/dca/structSJson__S_1a34c41be372d7bbe614b312cef2051b99" kind="variable"><name>v</name></member>
     <member refid="d9/dca/structSJson__S_1afd320740fab795e7063e89157a23c511" kind="variable"><name>get_string</name></member>
     <member refid="d9/dca/structSJson__S_1a8bd24b6b85325a01b8bae6c5899583f2" kind="variable"><name>json_free</name></member>
+    <member refid="d9/dca/structSJson__S_1a3910fed04a197e779815cad2b0535f62" kind="variable"><name>copy</name></member>
   </compound>
   <compound refid="d4/d1f/structSJString" kind="struct"><name>SJString</name>
     <member refid="d4/d1f/structSJString_1a623eb7be189beccc29815162623ef0ca" kind="variable"><name>text</name></member>
@@ -31,6 +32,7 @@
   </compound>
   <compound refid="d1/d15/simple__json_8h" kind="file"><name>simple_json.h</name>
     <member refid="d1/d15/simple__json_8h_1ad1ef511c3463cdecef2f38796af1e81e" kind="function"><name>sj_free</name></member>
+    <member refid="d1/d15/simple__json_8h_1a0246b1c8e7295c1da2ce775389ee30e3" kind="function"><name>sj_copy</name></member>
     <member refid="d1/d15/simple__json_8h_1aec68172c7e7881e136f3dfeff46b9675" kind="function"><name>sj_load</name></member>
     <member refid="d1/d15/simple__json_8h_1a18a7b87adf4f72a0ac7a5710104ccf45" kind="function"><name>sj_save</name></member>
     <member refid="d1/d15/simple__json_8h_1af9dd6baff6bddfd106108b2351790690" kind="function"><name>sj_new_str</name></member>
@@ -130,12 +132,14 @@
     <member refid="df/d03/simple__json_8c_1a02d0d378fb7b08c6d9345d4a1a8ec6af" kind="function"><name>get_file_Size</name></member>
     <member refid="df/d03/simple__json_8c_1aec68172c7e7881e136f3dfeff46b9675" kind="function"><name>sj_load</name></member>
     <member refid="df/d03/simple__json_8c_1a17b72c84ece910c9365592ac297fa52b" kind="function"><name>sj_new</name></member>
+    <member refid="df/d03/simple__json_8c_1a0246b1c8e7295c1da2ce775389ee30e3" kind="function"><name>sj_copy</name></member>
     <member refid="df/d03/simple__json_8c_1aeb651d73582b498cf77fb178089d5848" kind="function"><name>sj_free</name></member>
     <member refid="df/d03/simple__json_8c_1a18a7b87adf4f72a0ac7a5710104ccf45" kind="function"><name>sj_save</name></member>
     <member refid="df/d03/simple__json_8c_1a1f6469d89e33cd32b02f59d238fd2a18" kind="function"><name>sj_echo</name></member>
     <member refid="df/d03/simple__json_8c_1acefe3625efa1d9a2eb4540f49179f125" kind="function"><name>sj_null_free</name></member>
     <member refid="df/d03/simple__json_8c_1ace951db871c87f7cc400d4b5201092e5" kind="function"><name>sj_value_to_json_string</name></member>
     <member refid="df/d03/simple__json_8c_1ae2bbd86c3d893be57167d79cf9fdab89" kind="function"><name>sj_null_to_json_string</name></member>
+    <member refid="df/d03/simple__json_8c_1afdb3e5caa026913f78fcdb20e91e88e6" kind="function"><name>sj_null_copy</name></member>
     <member refid="df/d03/simple__json_8c_1a827e3349a5de45c6e1d92efb21c867e2" kind="function"><name>sj_null_new</name></member>
     <member refid="df/d03/simple__json_8c_1a55530b42bc765c47ccd9eea7fca8f8d1" kind="function"><name>sj_get_string_value</name></member>
     <member refid="df/d03/simple__json_8c_1a5608b519dabd9f9bb74cc96e13e0b250" kind="function"><name>sj_get_integer_value</name></member>
@@ -150,6 +154,7 @@
   </compound>
   <compound refid="d4/db4/simple__json__array_8c" kind="file"><name>simple_json_array.c</name>
     <member refid="d4/db4/simple__json__array_8c_1a06bdae2789eec42cb68de2b3f500258d" kind="function"><name>sj_array_check</name></member>
+    <member refid="d4/db4/simple__json__array_8c_1acb688f784a82ed0c3bbc2a0c12f080d3" kind="function"><name>sj_array_copy</name></member>
     <member refid="d4/db4/simple__json__array_8c_1a260c8407db429ec48b0fcc342fd35416" kind="function"><name>sj_array_new</name></member>
     <member refid="d4/db4/simple__json__array_8c_1a97f6a40db68a7746dfda2c292f01f500" kind="function"><name>sj_array_free</name></member>
     <member refid="d4/db4/simple__json__array_8c_1ad11a3339ca2b1882b5589149d594e007" kind="function"><name>sj_array_get_count</name></member>
@@ -184,6 +189,7 @@
     <member refid="d1/d00/simple__json__object_8c_1ad210f07fe056b70dde9016be25a58f26" kind="function"><name>sj_pair_free</name></member>
     <member refid="d1/d00/simple__json__object_8c_1af279ef2e270d540b32966341d99ca9d0" kind="function"><name>sj_pair_new</name></member>
     <member refid="d1/d00/simple__json__object_8c_1aa46bc64eb14588bd121eae3e33ca0d94" kind="function"><name>sj_object_insert</name></member>
+    <member refid="d1/d00/simple__json__object_8c_1a6575a559909011ed29ad547772ce0eaf" kind="function"><name>sj_object_copy</name></member>
     <member refid="d1/d00/simple__json__object_8c_1a717d1569ffe0ec2d861fa4769ab3c922" kind="function"><name>sj_object_new</name></member>
     <member refid="d1/d00/simple__json__object_8c_1a9d320f7ff286eb0bbd66041daa2df54f" kind="function"><name>sj_object_free</name></member>
     <member refid="d1/d00/simple__json__object_8c_1a60c5fe467a0603fea5b0385b6f7f9bd0" kind="function"><name>sj_object_get_value</name></member>
@@ -211,6 +217,7 @@
     <member refid="d9/dc8/simple__json__string_8c_1a83d5367b844a08fc03ad69ef22c9114d" kind="function"><name>sj_string_set_limit</name></member>
     <member refid="d9/dc8/simple__json__string_8c_1af2cdb17da5a9e1f666af79a3e3a01201" kind="function"><name>sj_string_value_free</name></member>
     <member refid="d9/dc8/simple__json__string_8c_1afa8f9113feeaaf8787975d50b0b8e998" kind="function"><name>sj_string_value_get_string</name></member>
+    <member refid="d9/dc8/simple__json__string_8c_1a5e215e58a920cb76850b314d679f6371" kind="function"><name>sj_string_copy</name></member>
     <member refid="d9/dc8/simple__json__string_8c_1aac7f9dff7a04bf6a7a84dddcd60088ec" kind="function"><name>sj_string_to_value</name></member>
     <member refid="d9/dc8/simple__json__string_8c_1a92598a33ebf9c9c6ee36109b9eac0a7a" kind="function"><name>sj_string_get_text</name></member>
     <member refid="d9/dc8/simple__json__string_8c_1a98eb51563c6501a48e8385ac7638c244" kind="function"><name>sj_string_concat</name></member>

@@ -63,6 +63,9 @@
       <node id="29">
         <label>SJson_S</label>
         <link refid="d9/dca/structSJson__S"/>
+        <childnode refid="29" relation="usage">
+          <edgelabel>copy</edgelabel>
+        </childnode>
         <childnode refid="30" relation="usage">
           <edgelabel>array</edgelabel>
         </childnode>

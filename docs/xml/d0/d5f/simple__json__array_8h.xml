@@ -101,7 +101,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/djkehoe/git/simple_json/include/simple_json_array.h" line="8" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json_array.c" bodystart="20" bodyend="30"/>
+        <location file="/home/djkehoe/git/simple_json/include/simple_json_array.h" line="8" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json_array.c" bodystart="38" bodyend="49"/>
       </memberdef>
       <memberdef kind="function" id="d0/d5f/simple__json__array_8h_1a97f6a40db68a7746dfda2c292f01f500" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -118,7 +118,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/djkehoe/git/simple_json/include/simple_json_array.h" line="10" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json_array.c" bodystart="32" bodyend="45"/>
+        <location file="/home/djkehoe/git/simple_json/include/simple_json_array.h" line="10" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json_array.c" bodystart="51" bodyend="64"/>
       </memberdef>
       <memberdef kind="function" id="d0/d5f/simple__json__array_8h_1a629448a3bf8473e0b3b5f698245524d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -155,7 +155,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/djkehoe/git/simple_json/include/simple_json_array.h" line="12" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json_array.c" bodystart="53" bodyend="58"/>
+        <location file="/home/djkehoe/git/simple_json/include/simple_json_array.h" line="12" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json_array.c" bodystart="72" bodyend="77"/>
       </memberdef>
       <memberdef kind="function" id="d0/d5f/simple__json__array_8h_1a20ad06b79ca3a69a5384a188d461eec7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="de/d40/simple__json__value_8h_1a3aa063084e242f19976eb9578480d4e2" kindref="member">SJson</ref> *</type>
@@ -192,7 +192,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/djkehoe/git/simple_json/include/simple_json_array.h" line="14" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json_array.c" bodystart="60" bodyend="64"/>
+        <location file="/home/djkehoe/git/simple_json/include/simple_json_array.h" line="14" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json_array.c" bodystart="79" bodyend="83"/>
       </memberdef>
       <memberdef kind="function" id="d0/d5f/simple__json__array_8h_1aa859c399a33ade6938aff698dd7f3f8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="d4/d1f/structSJString" kindref="compound">SJString</ref> *</type>
@@ -229,7 +229,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/djkehoe/git/simple_json/include/simple_json_array.h" line="22" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json_array.c" bodystart="66" bodyend="74"/>
+        <location file="/home/djkehoe/git/simple_json/include/simple_json_array.h" line="22" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json_array.c" bodystart="85" bodyend="93"/>
       </memberdef>
       <memberdef kind="function" id="d0/d5f/simple__json__array_8h_1a4817507a839db8dd1524a3b6e15e4a5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="d4/d1f/structSJString" kindref="compound">SJString</ref> *</type>
@@ -255,7 +255,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/djkehoe/git/simple_json/include/simple_json_array.h" line="29" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json_array.c" bodystart="76" bodyend="94"/>
+        <location file="/home/djkehoe/git/simple_json/include/simple_json_array.h" line="29" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json_array.c" bodystart="95" bodyend="113"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

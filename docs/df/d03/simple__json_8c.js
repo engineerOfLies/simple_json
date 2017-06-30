@@ -1,6 +1,7 @@
 var simple__json_8c =
 [
     [ "get_file_Size", "df/d03/simple__json_8c.html#a02d0d378fb7b08c6d9345d4a1a8ec6af", null ],
+    [ "sj_copy", "df/d03/simple__json_8c.html#a0246b1c8e7295c1da2ce775389ee30e3", null ],
     [ "sj_echo", "df/d03/simple__json_8c.html#a1f6469d89e33cd32b02f59d238fd2a18", null ],
     [ "sj_free", "df/d03/simple__json_8c.html#aeb651d73582b498cf77fb178089d5848", null ],
     [ "sj_get_bool_value", "df/d03/simple__json_8c.html#ad12f90e5a2f56f4fa30a2e60744c5e56", null ],
@@ -19,6 +20,7 @@ var simple__json_8c =
     [ "sj_new_float", "df/d03/simple__json_8c.html#a21a7c2878d965081a7250a1b2857ad02", null ],
     [ "sj_new_int", "df/d03/simple__json_8c.html#af385ce3d673cacde380509e1cc94a1b1", null ],
     [ "sj_new_str", "df/d03/simple__json_8c.html#af9dd6baff6bddfd106108b2351790690", null ],
+    [ "sj_null_copy", "df/d03/simple__json_8c.html#afdb3e5caa026913f78fcdb20e91e88e6", null ],
     [ "sj_null_free", "df/d03/simple__json_8c.html#acefe3625efa1d9a2eb4540f49179f125", null ],
     [ "sj_null_new", "df/d03/simple__json_8c.html#a827e3349a5de45c6e1d92efb21c867e2", null ],
     [ "sj_null_to_json_string", "df/d03/simple__json_8c.html#ae2bbd86c3d893be57167d79cf9fdab89", null ],

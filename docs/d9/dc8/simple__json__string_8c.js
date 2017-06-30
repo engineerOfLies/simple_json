@@ -6,6 +6,7 @@ var simple__json__string_8c =
     [ "sj_string_as_integer", "d9/dc8/simple__json__string_8c.html#acb68e4dd658ed579266be01ca6e2cfc4", null ],
     [ "sj_string_cmp", "d9/dc8/simple__json__string_8c.html#a7b567767503b42cee4fab510889c6d10", null ],
     [ "sj_string_concat", "d9/dc8/simple__json__string_8c.html#a98eb51563c6501a48e8385ac7638c244", null ],
+    [ "sj_string_copy", "d9/dc8/simple__json__string_8c.html#a5e215e58a920cb76850b314d679f6371", null ],
     [ "sj_string_free", "d9/dc8/simple__json__string_8c.html#a353b46786c4eab028ec911ed8cafed2d", null ],
     [ "sj_string_get_text", "d9/dc8/simple__json__string_8c.html#a92598a33ebf9c9c6ee36109b9eac0a7a", null ],
     [ "sj_string_new", "d9/dc8/simple__json__string_8c.html#a5507567114ed0256e77d45c558b6d7cb", null ],

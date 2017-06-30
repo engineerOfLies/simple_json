@@ -4,6 +4,7 @@ var simple__json_8h =
     [ "sj_array_get_count", "d1/d15/simple__json_8h.html#ad11a3339ca2b1882b5589149d594e007", null ],
     [ "sj_array_get_nth", "d1/d15/simple__json_8h.html#a20ad06b79ca3a69a5384a188d461eec7", null ],
     [ "sj_array_new", "d1/d15/simple__json_8h.html#a260c8407db429ec48b0fcc342fd35416", null ],
+    [ "sj_copy", "d1/d15/simple__json_8h.html#a0246b1c8e7295c1da2ce775389ee30e3", null ],
     [ "sj_echo", "d1/d15/simple__json_8h.html#a1f6469d89e33cd32b02f59d238fd2a18", null ],
     [ "sj_free", "d1/d15/simple__json_8h.html#ad1ef511c3463cdecef2f38796af1e81e", null ],
     [ "sj_get_bool_value", "d1/d15/simple__json_8h.html#ad12f90e5a2f56f4fa30a2e60744c5e56", null ],

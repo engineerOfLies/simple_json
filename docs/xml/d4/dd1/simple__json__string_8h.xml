@@ -376,7 +376,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/djkehoe/git/simple_json/include/simple_json_string.h" line="67" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json_string.c" bodystart="182" bodyend="203"/>
+        <location file="/home/djkehoe/git/simple_json/include/simple_json_string.h" line="67" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json_string.c" bodystart="190" bodyend="211"/>
       </memberdef>
       <memberdef kind="function" id="d4/dd1/simple__json__string_8h_1ad594e541b3295d09556a22184c8be97d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -412,7 +412,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/djkehoe/git/simple_json/include/simple_json_string.h" line="74" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json_string.c" bodystart="205" bodyend="226"/>
+        <location file="/home/djkehoe/git/simple_json/include/simple_json_string.h" line="74" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json_string.c" bodystart="213" bodyend="234"/>
       </memberdef>
       <memberdef kind="function" id="d4/dd1/simple__json__string_8h_1a92598a33ebf9c9c6ee36109b9eac0a7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>char *</type>
@@ -438,7 +438,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/djkehoe/git/simple_json/include/simple_json_string.h" line="81" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json_string.c" bodystart="176" bodyend="180"/>
+        <location file="/home/djkehoe/git/simple_json/include/simple_json_string.h" line="81" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json_string.c" bodystart="184" bodyend="188"/>
       </memberdef>
       <memberdef kind="function" id="d4/dd1/simple__json__string_8h_1acb68e4dd658ed579266be01ca6e2cfc4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -475,7 +475,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/djkehoe/git/simple_json/include/simple_json_string.h" line="89" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json_string.c" bodystart="244" bodyend="259"/>
+        <location file="/home/djkehoe/git/simple_json/include/simple_json_string.h" line="89" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json_string.c" bodystart="252" bodyend="267"/>
       </memberdef>
       <memberdef kind="function" id="d4/dd1/simple__json__string_8h_1a2e0ed36958f2d1c5ef648d777f584a30" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -512,7 +512,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/djkehoe/git/simple_json/include/simple_json_string.h" line="97" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json_string.c" bodystart="261" bodyend="276"/>
+        <location file="/home/djkehoe/git/simple_json/include/simple_json_string.h" line="97" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json_string.c" bodystart="269" bodyend="284"/>
       </memberdef>
       <memberdef kind="function" id="d4/dd1/simple__json__string_8h_1a772abb082e3d8763757881e15d537000" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -549,7 +549,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/djkehoe/git/simple_json/include/simple_json_string.h" line="105" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json_string.c" bodystart="278" bodyend="299"/>
+        <location file="/home/djkehoe/git/simple_json/include/simple_json_string.h" line="105" column="1" bodyfile="/home/djkehoe/git/simple_json/src/simple_json_string.c" bodystart="286" bodyend="307"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

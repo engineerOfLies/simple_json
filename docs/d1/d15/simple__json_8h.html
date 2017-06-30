@@ -149,6 +149,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ad1ef511c3463cdecef2f38796af1e81e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d15/simple__json_8h.html#ad1ef511c3463cdecef2f38796af1e81e">sj_free</a> (<a class="el" href="../../de/d40/simple__json__value_8h.html#a3aa063084e242f19976eb9578480d4e2">SJson</a> *sjs)</td></tr>
 <tr class="memdesc:ad1ef511c3463cdecef2f38796af1e81e"><td class="mdescLeft">&#160;</td><td class="mdescRight">frees a previously loaded json struct  <a href="#ad1ef511c3463cdecef2f38796af1e81e">More...</a><br /></td></tr>
 <tr class="separator:ad1ef511c3463cdecef2f38796af1e81e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0246b1c8e7295c1da2ce775389ee30e3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d40/simple__json__value_8h.html#a3aa063084e242f19976eb9578480d4e2">SJson</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d15/simple__json_8h.html#a0246b1c8e7295c1da2ce775389ee30e3">sj_copy</a> (<a class="el" href="../../de/d40/simple__json__value_8h.html#a3aa063084e242f19976eb9578480d4e2">SJson</a> *json)</td></tr>
+<tr class="memdesc:a0246b1c8e7295c1da2ce775389ee30e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">make a duplicate of a json structure.  <a href="#a0246b1c8e7295c1da2ce775389ee30e3">More...</a><br /></td></tr>
+<tr class="separator:a0246b1c8e7295c1da2ce775389ee30e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec68172c7e7881e136f3dfeff46b9675"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d40/simple__json__value_8h.html#a3aa063084e242f19976eb9578480d4e2">SJson</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d15/simple__json_8h.html#aec68172c7e7881e136f3dfeff46b9675">sj_load</a> (const char *filename)</td></tr>
 <tr class="memdesc:aec68172c7e7881e136f3dfeff46b9675"><td class="mdescLeft">&#160;</td><td class="mdescRight">loads and parses a json file  <a href="#aec68172c7e7881e136f3dfeff46b9675">More...</a><br /></td></tr>
 <tr class="separator:aec68172c7e7881e136f3dfeff46b9675"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -260,7 +263,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>: this is a no-op if array is not an actual JSON array </dd></dl>
 
-<p>Definition at line <a class="el" href="../../d4/db4/simple__json__array_8c_source.html#l00053">53</a> of file <a class="el" href="../../d4/db4/simple__json__array_8c_source.html">simple_json_array.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/db4/simple__json__array_8c_source.html#l00072">72</a> of file <a class="el" href="../../d4/db4/simple__json__array_8c_source.html">simple_json_array.c</a>.</p>
 
 </div>
 </div>
@@ -287,7 +290,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 if there is an error, the count otherwise </dd></dl>
 
-<p>Definition at line <a class="el" href="../../d4/db4/simple__json__array_8c_source.html#l00047">47</a> of file <a class="el" href="../../d4/db4/simple__json__array_8c_source.html">simple_json_array.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/db4/simple__json__array_8c_source.html#l00066">66</a> of file <a class="el" href="../../d4/db4/simple__json__array_8c_source.html">simple_json_array.c</a>.</p>
 
 </div>
 </div>
@@ -325,7 +328,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>NULL on error (check <a class="el" href="../../d8/d02/simple__json__error_8c.html#a5d74fc3dd2997bd985966f6c31e241de" title="get the last reported error for simple json ">sj_get_error()</a>) or the SJson value otherwise </dd></dl>
 
-<p>Definition at line <a class="el" href="../../d4/db4/simple__json__array_8c_source.html#l00060">60</a> of file <a class="el" href="../../d4/db4/simple__json__array_8c_source.html">simple_json_array.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/db4/simple__json__array_8c_source.html#l00079">79</a> of file <a class="el" href="../../d4/db4/simple__json__array_8c_source.html">simple_json_array.c</a>.</p>
 
 </div>
 </div>
@@ -345,7 +348,35 @@ Functions</h2></td></tr>
 <p>allocate a new empty json array </p>
 <dl class="section return"><dt>Returns</dt><dd>NULL on memory allocation error, an empty SJson array otherwise </dd></dl>
 
-<p>Definition at line <a class="el" href="../../d4/db4/simple__json__array_8c_source.html#l00020">20</a> of file <a class="el" href="../../d4/db4/simple__json__array_8c_source.html">simple_json_array.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/db4/simple__json__array_8c_source.html#l00038">38</a> of file <a class="el" href="../../d4/db4/simple__json__array_8c_source.html">simple_json_array.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0246b1c8e7295c1da2ce775389ee30e3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/d40/simple__json__value_8h.html#a3aa063084e242f19976eb9578480d4e2">SJson</a>* sj_copy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d40/simple__json__value_8h.html#a3aa063084e242f19976eb9578480d4e2">SJson</a> *&#160;</td>
+          <td class="paramname"><em>json</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>make a duplicate of a json structure. </p>
+<dl class="section note"><dt>Note</dt><dd>the duplicate needs to be <a class="el" href="../../d1/d15/simple__json_8h.html#ad1ef511c3463cdecef2f38796af1e81e" title="frees a previously loaded json struct ">sj_free()</a>'d separately </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">json</td><td>the json to be duplicated </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>NULL on error, or a Duplicate json </dd></dl>
+
+<p>Definition at line <a class="el" href="../../df/d03/simple__json_8c_source.html#l00109">109</a> of file <a class="el" href="../../df/d03/simple__json_8c_source.html">simple_json.c</a>.</p>
 
 </div>
 </div>
@@ -371,7 +402,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="../../df/d03/simple__json_8c_source.html#l00133">133</a> of file <a class="el" href="../../df/d03/simple__json_8c_source.html">simple_json.c</a>.</p>
+<p>Definition at line <a class="el" href="../../df/d03/simple__json_8c_source.html#l00140">140</a> of file <a class="el" href="../../df/d03/simple__json_8c_source.html">simple_json.c</a>.</p>
 
 </div>
 </div>
@@ -391,7 +422,7 @@ Functions</h2></td></tr>
 
 <p>frees a previously loaded json struct </p>
 
-<p>Definition at line <a class="el" href="../../df/d03/simple__json_8c_source.html#l00109">109</a> of file <a class="el" href="../../df/d03/simple__json_8c_source.html">simple_json.c</a>.</p>
+<p>Definition at line <a class="el" href="../../df/d03/simple__json_8c_source.html#l00116">116</a> of file <a class="el" href="../../df/d03/simple__json_8c_source.html">simple_json.c</a>.</p>
 
 </div>
 </div>
@@ -429,7 +460,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 if the json did not contain a bool or if there was an error, 1 otherwise </dd></dl>
 
-<p>Definition at line <a class="el" href="../../df/d03/simple__json_8c_source.html#l00190">190</a> of file <a class="el" href="../../df/d03/simple__json_8c_source.html">simple_json.c</a>.</p>
+<p>Definition at line <a class="el" href="../../df/d03/simple__json_8c_source.html#l00202">202</a> of file <a class="el" href="../../df/d03/simple__json_8c_source.html">simple_json.c</a>.</p>
 
 </div>
 </div>
@@ -467,7 +498,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 if the json did not contain a float or if there was an error, 1 otherwise </dd></dl>
 
-<p>Definition at line <a class="el" href="../../df/d03/simple__json_8c_source.html#l00184">184</a> of file <a class="el" href="../../df/d03/simple__json_8c_source.html">simple_json.c</a>.</p>
+<p>Definition at line <a class="el" href="../../df/d03/simple__json_8c_source.html#l00196">196</a> of file <a class="el" href="../../df/d03/simple__json_8c_source.html">simple_json.c</a>.</p>
 
 </div>
 </div>
@@ -505,7 +536,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 if the json did not contain an integer or if there was an error, 1 otherwise </dd></dl>
 
-<p>Definition at line <a class="el" href="../../df/d03/simple__json_8c_source.html#l00178">178</a> of file <a class="el" href="../../df/d03/simple__json_8c_source.html">simple_json.c</a>.</p>
+<p>Definition at line <a class="el" href="../../df/d03/simple__json_8c_source.html#l00190">190</a> of file <a class="el" href="../../df/d03/simple__json_8c_source.html">simple_json.c</a>.</p>
 
 </div>
 </div>
@@ -533,7 +564,7 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>NULL if the provided json was not a string or on error, the string otherwise </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>: the returned value should not be altered or freed </dd></dl>
 
-<p>Definition at line <a class="el" href="../../df/d03/simple__json_8c_source.html#l00172">172</a> of file <a class="el" href="../../df/d03/simple__json_8c_source.html">simple_json.c</a>.</p>
+<p>Definition at line <a class="el" href="../../df/d03/simple__json_8c_source.html#l00184">184</a> of file <a class="el" href="../../df/d03/simple__json_8c_source.html">simple_json.c</a>.</p>
 
 </div>
 </div>
@@ -560,7 +591,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 if it is, 0 if not </dd></dl>
 
-<p>Definition at line <a class="el" href="../../df/d03/simple__json_8c_source.html#l00196">196</a> of file <a class="el" href="../../df/d03/simple__json_8c_source.html">simple_json.c</a>.</p>
+<p>Definition at line <a class="el" href="../../df/d03/simple__json_8c_source.html#l00208">208</a> of file <a class="el" href="../../df/d03/simple__json_8c_source.html">simple_json.c</a>.</p>
 
 </div>
 </div>
@@ -587,7 +618,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 if it is, 0 if not </dd></dl>
 
-<p>Definition at line <a class="el" href="../../df/d03/simple__json_8c_source.html#l00224">224</a> of file <a class="el" href="../../df/d03/simple__json_8c_source.html">simple_json.c</a>.</p>
+<p>Definition at line <a class="el" href="../../df/d03/simple__json_8c_source.html#l00236">236</a> of file <a class="el" href="../../df/d03/simple__json_8c_source.html">simple_json.c</a>.</p>
 
 </div>
 </div>
@@ -614,7 +645,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 if it is, 0 if not </dd></dl>
 
-<p>Definition at line <a class="el" href="../../df/d03/simple__json_8c_source.html#l00231">231</a> of file <a class="el" href="../../df/d03/simple__json_8c_source.html">simple_json.c</a>.</p>
+<p>Definition at line <a class="el" href="../../df/d03/simple__json_8c_source.html#l00243">243</a> of file <a class="el" href="../../df/d03/simple__json_8c_source.html">simple_json.c</a>.</p>
 
 </div>
 </div>
@@ -641,7 +672,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 if it is, 0 if not </dd></dl>
 
-<p>Definition at line <a class="el" href="../../df/d03/simple__json_8c_source.html#l00217">217</a> of file <a class="el" href="../../df/d03/simple__json_8c_source.html">simple_json.c</a>.</p>
+<p>Definition at line <a class="el" href="../../df/d03/simple__json_8c_source.html#l00229">229</a> of file <a class="el" href="../../df/d03/simple__json_8c_source.html">simple_json.c</a>.</p>
 
 </div>
 </div>
@@ -668,7 +699,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 if it is, 0 if not </dd></dl>
 
-<p>Definition at line <a class="el" href="../../df/d03/simple__json_8c_source.html#l00203">203</a> of file <a class="el" href="../../df/d03/simple__json_8c_source.html">simple_json.c</a>.</p>
+<p>Definition at line <a class="el" href="../../df/d03/simple__json_8c_source.html#l00215">215</a> of file <a class="el" href="../../df/d03/simple__json_8c_source.html">simple_json.c</a>.</p>
 
 </div>
 </div>
@@ -695,7 +726,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 if it is, 0 if not </dd></dl>
 
-<p>Definition at line <a class="el" href="../../df/d03/simple__json_8c_source.html#l00210">210</a> of file <a class="el" href="../../df/d03/simple__json_8c_source.html">simple_json.c</a>.</p>
+<p>Definition at line <a class="el" href="../../df/d03/simple__json_8c_source.html#l00222">222</a> of file <a class="el" href="../../df/d03/simple__json_8c_source.html">simple_json.c</a>.</p>
 
 </div>
 </div>
@@ -850,7 +881,7 @@ Functions</h2></td></tr>
 <p>make a new json value that is NULL </p>
 <dl class="section return"><dt>Returns</dt><dd>NULL on error (Ironically) or a new json that holds a NULL value </dd></dl>
 
-<p>Definition at line <a class="el" href="../../df/d03/simple__json_8c_source.html#l00161">161</a> of file <a class="el" href="../../df/d03/simple__json_8c_source.html">simple_json.c</a>.</p>
+<p>Definition at line <a class="el" href="../../df/d03/simple__json_8c_source.html#l00173">173</a> of file <a class="el" href="../../df/d03/simple__json_8c_source.html">simple_json.c</a>.</p>
 
 </div>
 </div>
@@ -889,7 +920,7 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>NULL on error, or if no object provided or it is not of object or the key is not found, the value otherwise </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>: the json returned is OWNED by the parent object do not free it. </dd></dl>
 
-<p>Definition at line <a class="el" href="../../d1/d00/simple__json__object_8c_source.html#l00097">97</a> of file <a class="el" href="../../d1/d00/simple__json__object_8c_source.html">simple_json_object.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d00/simple__json__object_8c_source.html#l00116">116</a> of file <a class="el" href="../../d1/d00/simple__json__object_8c_source.html">simple_json_object.c</a>.</p>
 
 </div>
 </div>
@@ -954,7 +985,7 @@ Functions</h2></td></tr>
 <p>allocate a new empty json object </p>
 <dl class="section return"><dt>Returns</dt><dd>NULL on memory allocation error, an empty SJson object otherwise </dd></dl>
 
-<p>Definition at line <a class="el" href="../../d1/d00/simple__json__object_8c_source.html#l00069">69</a> of file <a class="el" href="../../d1/d00/simple__json__object_8c_source.html">simple_json_object.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d00/simple__json__object_8c_source.html#l00087">87</a> of file <a class="el" href="../../d1/d00/simple__json__object_8c_source.html">simple_json_object.c</a>.</p>
 
 </div>
 </div>
@@ -991,7 +1022,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="../../df/d03/simple__json_8c_source.html#l00116">116</a> of file <a class="el" href="../../df/d03/simple__json_8c_source.html">simple_json.c</a>.</p>
+<p>Definition at line <a class="el" href="../../df/d03/simple__json_8c_source.html#l00123">123</a> of file <a class="el" href="../../df/d03/simple__json_8c_source.html">simple_json.c</a>.</p>
 
 </div>
 </div>

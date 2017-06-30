@@ -2,6 +2,7 @@ var simple__json__object_8c =
 [
     [ "SJPair", "dd/d6d/structSJPair.html", "dd/d6d/structSJPair" ],
     [ "sj_object_check", "d1/d00/simple__json__object_8c.html#ac9279570a1d0982dc3dc5922d16bb8df", null ],
+    [ "sj_object_copy", "d1/d00/simple__json__object_8c.html#a6575a559909011ed29ad547772ce0eaf", null ],
     [ "sj_object_free", "d1/d00/simple__json__object_8c.html#a9d320f7ff286eb0bbd66041daa2df54f", null ],
     [ "sj_object_get_value", "d1/d00/simple__json__object_8c.html#a60c5fe467a0603fea5b0385b6f7f9bd0", null ],
     [ "sj_object_get_value_as_string", "d1/d00/simple__json__object_8c.html#a53d11bf148fdebe3c7dc395f112bfc25", null ],
