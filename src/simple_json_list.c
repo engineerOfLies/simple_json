@@ -147,7 +147,7 @@ SJList *sj_list_delete_last(SJList *list)
 
 int sj_list_delete_data(SJList *list,void *data)
 {
-    int i;
+    unsigned int i;
     if (!list)
     {
         sj_set_error("no list provided");
@@ -197,7 +197,7 @@ unsigned int sj_list_get_count(SJList *list)
 
 void sj_list_foreach(SJList *list,void (*function)(void *data,void *context),void *contextData)
 {
-    int i;
+    unsigned int i;
     if (!list)
     {
         sj_set_error("no list provided");

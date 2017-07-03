@@ -1,9 +1,13 @@
+#include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <stdio.h>
 #include "simple_json.h"
 #include "simple_json_string.h"
 #include "simple_json_error.h"
+
+#ifndef snprintf
+#define snprintf _snprintf
+#endif
 
 SJString *sj_string_new()
 {
@@ -94,7 +98,7 @@ int sj_string_cmp(SJString *string,char *s)
 
 void sj_string_set(SJString *string,char *s)
 {
-    unsigned int l;
+    int l;
     if (!string)
     {
         sj_set_error("sj_string_set: no string provided");
@@ -120,7 +124,7 @@ void sj_string_set(SJString *string,char *s)
     strncpy(string->text,s,string->size);
 }
 
-void sj_string_set_limit(SJString *string,char *s,unsigned long l)
+void sj_string_set_limit(SJString *string,char *s,long l)
 {
     if (!string)
     {

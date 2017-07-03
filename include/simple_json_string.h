@@ -57,7 +57,7 @@ void sj_string_set(SJString *string,char *s);
  * @param s the character array to change it to
  * @param length the limit on characters to copy from s
  */
-void sj_string_set_limit(SJString *string,char *s,unsigned long length);
+void sj_string_set_limit(SJString *string,char *s, long length);
 
 /**
  * @brief append the contents of string2 to string1
