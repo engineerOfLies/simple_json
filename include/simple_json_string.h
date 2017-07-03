@@ -5,7 +5,7 @@
  * @brief a basic structure that keeps track of a string and its length
  * Automatically grows to accomodate longer strings
  */
-typedef struct
+typedef struct SJString_S
 {
     char *text; /**<pointer to the character data*/
     int size;   /**<how much data base been allocated*/

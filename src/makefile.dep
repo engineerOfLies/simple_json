@@ -1,33 +1,31 @@
 simple_json.o: simple_json.c ../include/simple_json.h \
- ../include/simple_json_list.h ../include/simple_json_array.h \
- ../include/simple_json_value.h ../include/simple_json_string.h \
- ../include/simple_json_object.h ../include/simple_json_error.h \
- ../include/simple_json_string.h ../include/simple_json_parse.h \
- ../include/simple_json_error.h
+ ../include/simple_json_list.h ../include/simple_json_string.h \
+ ../include/simple_json_object.h ../include/simple_json_value.h \
+ ../include/simple_json_error.h ../include/simple_json_string.h \
+ ../include/simple_json_parse.h ../include/simple_json_error.h
 simple_json_array.o: simple_json_array.c ../include/simple_json.h \
- ../include/simple_json_list.h ../include/simple_json_array.h \
- ../include/simple_json_value.h ../include/simple_json_string.h \
- ../include/simple_json_object.h ../include/simple_json_error.h \
- ../include/simple_json_list.h ../include/simple_json_array.h \
- ../include/simple_json_error.h
+ ../include/simple_json_list.h ../include/simple_json_string.h \
+ ../include/simple_json_object.h ../include/simple_json_value.h \
+ ../include/simple_json_error.h ../include/simple_json_list.h \
+ ../include/simple_json_array.h ../include/simple_json_error.h
 simple_json_error.o: simple_json_error.c ../include/simple_json_error.h \
  ../include/simple_json_string.h
 simple_json_list.o: simple_json_list.c ../include/simple_json_list.h \
  ../include/simple_json_error.h
 simple_json_object.o: simple_json_object.c ../include/simple_json.h \
- ../include/simple_json_list.h ../include/simple_json_array.h \
- ../include/simple_json_value.h ../include/simple_json_string.h \
- ../include/simple_json_object.h ../include/simple_json_error.h \
- ../include/simple_json_object.h ../include/simple_json_list.h \
- ../include/simple_json_string.h ../include/simple_json_error.h
+ ../include/simple_json_list.h ../include/simple_json_string.h \
+ ../include/simple_json_object.h ../include/simple_json_value.h \
+ ../include/simple_json_error.h ../include/simple_json_object.h \
+ ../include/simple_json_list.h ../include/simple_json_string.h \
+ ../include/simple_json_error.h
 simple_json_parse.o: simple_json_parse.c ../include/simple_json.h \
- ../include/simple_json_list.h ../include/simple_json_array.h \
- ../include/simple_json_value.h ../include/simple_json_string.h \
- ../include/simple_json_object.h ../include/simple_json_error.h \
- ../include/simple_json_object.h ../include/simple_json_array.h \
- ../include/simple_json_string.h ../include/simple_json_error.h
+ ../include/simple_json_list.h ../include/simple_json_string.h \
+ ../include/simple_json_object.h ../include/simple_json_value.h \
+ ../include/simple_json_error.h ../include/simple_json_object.h \
+ ../include/simple_json_array.h ../include/simple_json_string.h \
+ ../include/simple_json_error.h
 simple_json_string.o: simple_json_string.c ../include/simple_json.h \
- ../include/simple_json_list.h ../include/simple_json_array.h \
- ../include/simple_json_value.h ../include/simple_json_string.h \
- ../include/simple_json_object.h ../include/simple_json_error.h \
- ../include/simple_json_string.h ../include/simple_json_error.h
+ ../include/simple_json_list.h ../include/simple_json_string.h \
+ ../include/simple_json_object.h ../include/simple_json_value.h \
+ ../include/simple_json_error.h ../include/simple_json_string.h \
+ ../include/simple_json_error.h

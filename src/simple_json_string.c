@@ -5,8 +5,10 @@
 #include "simple_json_string.h"
 #include "simple_json_error.h"
 
+#if defined(WIN32)
 #ifndef snprintf
 #define snprintf _snprintf
+#endif
 #endif
 
 SJString *sj_string_new()

@@ -20,7 +20,7 @@ LIB_PATH = ../libs
 STATIC_LIBS = libsj.a
 LDFLAGS = -L$(LIB_PATH) $(foreach d, $(STATIC_LIBS),$(LIB_PATH)/$d)
 
-INC_PATHS = ../include
+INC_PATHS = ../libs/include
 INC_PARAMS =$(foreach d, $(INC_PATHS), -I$d)
 
 LFLAGS = -g  -o ../$(PROJECT) -lm

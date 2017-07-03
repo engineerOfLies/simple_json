@@ -1,10 +1,9 @@
 #ifndef __SIMPLE_JSON_H__
 #define __SIMPLE_JSON_H__
 
-#include "simple_json_list.h"
-#include "simple_json_string.h"
-#include "simple_json_object.h"
-#include "simple_json_error.h"
+typedef struct SJList_S SJList;
+typedef struct SJString_S SJString;
+typedef struct SJson_S SJson;
 
 /**
  * @brief frees a previously loaded json struct
@@ -203,5 +202,16 @@ int sj_is_bool(SJson *json);
  */
 int sj_is_null(SJson *json);
 
+/**
+ * @brief get the last reported error for simple json
+ * @return a character array with the error message
+*/
+char *sj_get_error();
+
+/**
+ * @brief used internally to se the error message
+ * @param error the error message to set
+ */
+void sj_set_error(char *error);
 
 #endif

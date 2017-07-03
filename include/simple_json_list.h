@@ -13,7 +13,7 @@ typedef struct
  * @brief this is a simple list structure intended to hold an arbitrary number of elements
  * list will automatically grow as space is needed to accomodate more elements
  */
-typedef struct
+typedef struct SJList_S
 {
     SJListElementData *elements;    /**<a pointer to the array of the data*/
     unsigned int size;              /**<how much memory has been allocated*/
