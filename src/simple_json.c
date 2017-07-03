@@ -65,7 +65,7 @@ SJson *sj_load(const char *filename)
     }
     printf("loaded file %s with a size of %li characters\n",filename,size);
 
-    buffer = (char *)malloc(sizeof(char)*(size + 1));
+    buffer = (char *)malloc(sizeof(char)*(size + 2));
     
     if (buffer == NULL)
     {
@@ -73,7 +73,7 @@ SJson *sj_load(const char *filename)
         fclose(file);
         return NULL;
     }
-    memset(buffer,0,sizeof(char)*(size+1));
+    memset(buffer,0,sizeof(char)*(size+2));
     
     if ((read = fread(buffer, sizeof(char), size, file)) != size)
     {
@@ -134,6 +134,7 @@ void sj_save(SJson *json,char *filename)
         return;
     }
     fputs(string->text,file);
+    sj_string_free(string);
     fclose(file);
 }
 
@@ -208,14 +209,14 @@ int sj_get_bool_value(SJson *json,short int *b)
 int sj_is_array(SJson *json)
 {
     if (!json)return 0;
-    if (json->sjtype != SJVT_Object)return 0;
+    if (json->sjtype != SJVT_Array)return 0;
     return 1;
 }
 
 int sj_is_object(SJson *json)
 {
     if (!json)return 0;
-    if (json->sjtype != SJVT_Array)return 0;
+    if (json->sjtype != SJVT_Object)return 0;
     return 1;
 }
 

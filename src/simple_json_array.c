@@ -61,6 +61,7 @@ void sj_array_free(SJson *array)
         if (item->json_free)item->json_free(item);
     }
     sj_list_delete(array->v.array);
+    free(array);
 }
 
 int sj_array_get_count(SJson *array)
@@ -95,6 +96,7 @@ SJString *sj_array_get_nth_as_string(SJson *array,int n)
 SJString *sj_array_to_json_string(SJson *array)
 {
     SJString *string;
+    SJString *valuestring;
     SJson *value;
     int i, count;
     if (!sj_array_check(array))return NULL;
@@ -105,7 +107,9 @@ SJString *sj_array_to_json_string(SJson *array)
     {
         value = sj_list_get_nth(array->v.array,i);
         if (!value)continue;
-        sj_string_concat(string,sj_value_to_json_string(value));
+        valuestring = sj_value_to_json_string(value);
+        sj_string_concat(string,valuestring);
+        sj_string_free(valuestring);
         if (i +1 < count)sj_string_append(string,",");
     }
     sj_string_append(string,"]");

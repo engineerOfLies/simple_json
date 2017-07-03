@@ -200,7 +200,7 @@ SJson *sj_parse_array(jsParse *parse)
             parse->position++;
         }
     }
-    while(*parse->position != ']');
+    while((*parse->position != ']') && (parse->position < parse->end));
     parse->position++;
     return json;
 }
@@ -263,7 +263,7 @@ SJson *sj_parse_object(jsParse *parse)
             parse->position++;
         }
     }
-    while(*parse->position != '}');
+    while((*parse->position != '}') && (parse->position < parse->end));
     parse->position++;
     return json;
 }
@@ -271,7 +271,7 @@ SJson *sj_parse_object(jsParse *parse)
 SJson *sj_parse_buffer(char *string,unsigned long length)
 {
     SJson *json = NULL;
-    jsParse parse;
+    static jsParse parse;
     if (!string)
     {
         sj_set_error("sj_parse_buffer: no string provided");

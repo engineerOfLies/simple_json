@@ -42,27 +42,29 @@ SJString *sj_string_new_text(char *s)
     if (!string)return NULL;
     l = strlen(s)+1;
     string->text = (char *)malloc(sizeof(char)*l);
-    if (!string->text)
+    if (string->text == NULL)
     {
         sj_string_free(string);
         sj_set_error("failed to allocate space for string!");
         return NULL;
     }
+    memset(string->text,0,sizeof(char)*l);
     strncpy(string->text,s,l);
+    string->length = strlen(s);
     string->size = l;
     return string;
 }
 
 SJString *sj_string_new_integer(int i)
 {
-    char buffer[128];
+    static char buffer[128];
     sprintf(buffer,"%i",i);
     return sj_string_new_text(buffer);
 }
 
 SJString *sj_string_new_float(float f)
 {
-    char buffer[128];
+    static char buffer[128];
     sprintf(buffer,"%f",f);
     return sj_string_new_text(buffer);
 }
@@ -95,7 +97,7 @@ int sj_string_cmp(SJString *string,char *s)
         sj_set_error("sj_string_cmp: no character array provided");
         return 1;
     }
-    return strncmp(string->text,s,string->size);
+    return strncmp(string->text,s,string->length);
 }
 
 void sj_string_set(SJString *string,char *s)
@@ -111,7 +113,7 @@ void sj_string_set(SJString *string,char *s)
         sj_set_error("sj_string_set: no character array provided");
         return;
     }
-    l = strlen(s);
+    l = strlen(s)+1;
     if (l >= string->size)
     {
         if (string->text)free(string->text);
@@ -121,9 +123,11 @@ void sj_string_set(SJString *string,char *s)
             sj_set_error("sj_string_set: failed to allocate space for resized string");
             return;
         }
+        memset(string->text,0,sizeof(char)*l);
         string->size = l;
+        string->length = strlen(s);
     }
-    strncpy(string->text,s,string->size);
+    strncpy(string->text,s,string->length);
 }
 
 void sj_string_set_limit(SJString *string,char *s,long l)
@@ -138,19 +142,20 @@ void sj_string_set_limit(SJString *string,char *s,long l)
         sj_set_error("sj_string_set: no character array provided");
         return;
     }
-    if (l >= string->size)
+    if (l+1 >= string->size)
     {
-        if (string->text)free(string->text);
-        string->text = (char*)malloc(sizeof(char)*l);
+        if (string->text != NULL)free(string->text);
+        string->text = (char*)malloc(sizeof(char)*(l+1));
         if (!string->text)
         {
             sj_set_error("sj_string_set: failed to allocate space for resized string");
             return;
         }
-        string->size = l;
+        memset(string->text,0,sizeof(char)*(l+1));
+        string->length = strlen(s);
+        string->size = (l+1);
     }
     strncpy(string->text,s,l);
-    string->text[l] = '\0';
 }
 
 void sj_string_value_free(SJson *json)

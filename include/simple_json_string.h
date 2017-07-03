@@ -9,6 +9,7 @@ typedef struct SJString_S
 {
     char *text; /**<pointer to the character data*/
     int size;   /**<how much data base been allocated*/
+    int length;   /**<how much data base been allocated*/
 }SJString;
 
 /**
