@@ -47,6 +47,29 @@ char *get_next_unescaped_char(char *buffer, char target)
     return NULL;
 }
 
+char *get_next_relevant_char(char *buffer)
+{
+    if (!buffer)return NULL;
+    while (buffer[0] != '\0')
+    {
+        switch (buffer[0])
+        {
+            case '\n':
+            case '\r':
+            case '\t':
+            case ' ':
+//                printf("chomping white space (%c:%i)\n",*buffer,*buffer);
+                buffer++;
+                break;
+            default:
+  //              printf("character (%c:%i) checks out\n",*buffer,*buffer);
+                return buffer;
+        }
+    }
+    return NULL;
+}
+
+
 SJString *sj_parse_string(jsParse *parse)
 {
     char *p,*p1,*p2,*p3;
@@ -104,6 +127,7 @@ SJString *sj_parse_string(jsParse *parse)
     if (str_length <= 0)
     {
         sj_set_error("sj_parse_string: string is a zero or negative length");
+        printf("error parsing string at: %s",parse->position);
         sj_string_free(string);
         return NULL;
     }
@@ -116,6 +140,7 @@ SJson *sj_parse_value(jsParse *parse)
 {
     SJString *string;
     if (overseek_check_fail(parse))return NULL;
+    parse->position = get_next_relevant_char(parse->position);
     if (strncmp(parse->position,"null",4)==0)
     {
         switch (parse->position[4])
@@ -147,7 +172,7 @@ SJson *sj_parse_array(jsParse *parse)
     // validate we are an object
     if (*parse->position != '[')
     {
-        sj_set_error("sj_parse_object: expected first character to be a {\n");
+        sj_set_error("sj_parse_array: expected first character to be a [\n");
         return NULL;
     }
 
@@ -162,13 +187,14 @@ SJson *sj_parse_array(jsParse *parse)
         value = sj_parse_value(parse);
         if (value == NULL)
         {
-            sj_set_error("--=== array value failed to parse! ===--\n");
+            sj_set_error("sj_parse_array : --=== array value failed to parse! ===--\n");
             sj_array_free(json);
             return NULL;
         }
         
         sj_array_append(json,value);
         
+        parse->position = get_next_relevant_char(parse->position);
         if (*parse->position == ',')
         {
             parse->position++;
@@ -186,6 +212,7 @@ SJson *sj_parse_object(jsParse *parse)
     SJString *key;
     if (!parse)return NULL;
     // validate we are an object
+    
     if (*parse->position != '{')
     {
         sj_set_error("sj_parse_object: expected first character to be a {\n");
@@ -200,7 +227,16 @@ SJson *sj_parse_object(jsParse *parse)
     parse->position++;
     do
     {
+        parse->position = get_next_relevant_char(parse->position);
         key = sj_parse_string(parse);
+        if (!key)
+        {
+            sj_set_error("sj_parse_object: failed to parse key\n");
+            sj_object_free(json);
+            sj_string_free(key);
+            return NULL;
+        }
+        parse->position = get_next_relevant_char(parse->position);
         if (*parse->position != ':')
         {
             sj_set_error("sj_parse_object: no colon (:) delimeter for object\n");
@@ -213,13 +249,14 @@ SJson *sj_parse_object(jsParse *parse)
 
         if (value == NULL)
         {
-            sj_set_error("--=== array value failed to parse! ===--");
+            sj_set_error("sj_parse_object: --=== object value failed to parse! ===--");
             sj_string_free(key);
             sj_object_free(json);
             return NULL;
         }
         sj_object_insert(json,key->text,value);
         sj_string_free(key);
+        parse->position = get_next_relevant_char(parse->position);
         
         if (*parse->position == ',')
         {

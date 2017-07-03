@@ -14,6 +14,10 @@ int main(int argc, char *argv[])
     json = sj_load(argv[1]);
     
     printf("json loaded:\n");
+    if (!json)
+    {
+        printf("json failed to laod:\n%s\n",sj_get_error());
+    }
     sj_echo(json);
     
     printf("\nsaving json to file\n");

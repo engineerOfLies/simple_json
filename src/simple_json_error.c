@@ -10,6 +10,7 @@ char *sj_get_error()
 
 void sj_set_error(char *er)
 {
+    printf("%s\n",er);
     sj_string_set(&error,er);
 }
 
