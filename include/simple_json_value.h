@@ -19,7 +19,7 @@ typedef enum
 typedef struct SJson_S
 {
     SJValueTypes sjtype;    /**<internal tracking of the type.  DO NOT TOUCH*/
-    union
+    struct
     {
         SJList *array;      /**<an array or values or an array of pairs*/
         SJString *string;   /**<the string if this is a string type*/

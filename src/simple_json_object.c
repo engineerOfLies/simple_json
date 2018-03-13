@@ -63,7 +63,7 @@ void sj_object_insert(SJson *object,char *key,SJson *value)
     if (!value)return;
     pair = sj_pair_new(key,value);
     if (!pair)return;
-    sj_list_append(object->v.array,pair);
+    object->v.array = sj_list_append(object->v.array,pair);
 }
 
 SJson *sj_object_copy(SJson *json)

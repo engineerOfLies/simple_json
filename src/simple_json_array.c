@@ -74,7 +74,7 @@ void sj_array_append(SJson *array,SJson *value)
 {
     if (!sj_array_check(array))return;
     if (!value)return;
-    sj_list_append(array->v.array,value);
+    array->v.array = sj_list_append(array->v.array,value);
 }
 
 SJson *sj_array_get_nth(SJson *array,int n)

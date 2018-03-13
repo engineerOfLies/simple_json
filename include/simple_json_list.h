@@ -51,8 +51,9 @@ void *sj_list_get_nth(SJList *list,unsigned int n);
  * @brief add an element to the end of the list
  * @param list the list to add to
  * @param data the data to assign to the new element
+ * @returns a pointer to the updated list location
  */
-void sj_list_append(SJList *list,void *data);
+SJList *sj_list_append(SJList *list,void *data);
 
 /**
  * @brief instert a new element at the position provided

@@ -80,13 +80,13 @@ SJList *sj_list_expand(SJList *list)
     return l;
 }
 
-void sj_list_append(SJList *list,void *data)
+SJList *sj_list_append(SJList *list,void *data)
 {
     if (!list)
     {
         sj_set_error("no list provided");
         printf("no list provided\n");
-        return;
+        return NULL;
     }
     if (list->count >= list->size)
     {
@@ -95,10 +95,11 @@ void sj_list_append(SJList *list,void *data)
         {
             sj_set_error("append failed due to lack of memory");
             printf("append failed due to lack of memory\n");
-            return;
+            return NULL;
         }
     }
     list->elements[list->count++].data = data;
+    return list;
 }
 
 SJList *sj_list_prepend(SJList *list,void *data)
@@ -181,6 +182,7 @@ SJList *sj_list_delete_nth(SJList *list,unsigned int n)
     }
     if (n == (list->count - 1))
     {
+        list->elements[list->count - 1].data = NULL;
         list->count--;// last element in the list, this is easy
         return list;
     }

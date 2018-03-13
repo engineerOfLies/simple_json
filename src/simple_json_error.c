@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "simple_json_error.h"
 #include "simple_json_string.h"
 
