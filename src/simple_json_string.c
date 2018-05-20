@@ -11,6 +11,9 @@
 #endif
 #endif
 
+extern int __SJ_DEBUG;
+
+
 SJString *sj_string_new()
 {
     SJString *string;

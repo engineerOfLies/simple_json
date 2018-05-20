@@ -7,6 +7,8 @@
 #include "simple_json_string.h"
 #include "simple_json_error.h"
 
+extern int __SJ_DEBUG;
+
 int sj_object_check(SJson *json)
 {
     if (!json)return 0;

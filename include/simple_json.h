@@ -203,5 +203,15 @@ int sj_is_bool(SJson *json);
  */
 int sj_is_null(SJson *json);
 
+/**
+ * @brief enable automatic debug output to stdout
+ * @note it is disabled by default
+ */
+void sj_enable_debug();
 
+/**
+ * @brief disable automatic debug output to stdout
+ * @note it is disabled by default
+ */
+void sj_disable_debug();
 #endif

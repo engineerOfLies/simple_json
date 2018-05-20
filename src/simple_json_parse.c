@@ -7,6 +7,8 @@
 #include "simple_json_string.h"
 #include "simple_json_error.h"
 
+extern int __SJ_DEBUG;
+
 /**
  * @brief structure keeps track of the buffer being parsed and the position last used
  */
@@ -26,7 +28,8 @@ int overseek_check_fail(jsParse *parse)
     if (!parse)return 1;
     if (parse->position >= parse->end)
     {
-        printf("we have parsed too far");
+        sj_set_error("sj_parse: we have parsed too far");
+        if (__SJ_DEBUG) printf("we have parsed too far");
         return 1;
     }
     return 0;
@@ -126,8 +129,7 @@ SJString *sj_parse_string(jsParse *parse)
     str_length = p - parse->position;
     if (str_length <= 0)
     {
-        sj_set_error("sj_parse_string: string is a zero or negative length");
-        printf("error parsing string at: %s",parse->position);
+        sj_set_error("sj_parse_string: string is a zero or negative length\nerror parsing string at: %s",parse->position);
         sj_string_free(string);
         return NULL;
     }

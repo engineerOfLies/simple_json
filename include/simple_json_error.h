@@ -24,7 +24,8 @@ char *sj_get_error();
 /**
  * @brief used internally to se the error message
  * @param error the error message to set
+ * @param <vargs> variable arguments for the string
  */
-void sj_set_error(char *error);
+void sj_set_error(char *error,...);
 
 #endif

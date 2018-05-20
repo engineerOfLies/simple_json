@@ -4,6 +4,8 @@
 #include "simple_json_list.h"
 #include "simple_json_error.h"
 
+extern int __SJ_DEBUG;
+
 void sj_list_delete(SJList *list)
 {
     if (!list)return;
@@ -85,7 +87,7 @@ SJList *sj_list_append(SJList *list,void *data)
     if (!list)
     {
         sj_set_error("no list provided");
-        printf("no list provided\n");
+        if (__SJ_DEBUG) printf("no list provided\n");
         return NULL;
     }
     if (list->count >= list->size)
@@ -94,7 +96,7 @@ SJList *sj_list_append(SJList *list,void *data)
         if (!list)
         {
             sj_set_error("append failed due to lack of memory");
-            printf("append failed due to lack of memory\n");
+            if (__SJ_DEBUG) printf("append failed due to lack of memory\n");
             return NULL;
         }
     }

@@ -6,6 +6,8 @@
 #include "simple_json_parse.h"
 #include "simple_json_error.h"
 
+int __SJ_DEBUG = 0;
+
 SJson *sj_new_str(char *str)
 {
     return sj_string_to_value(sj_string_new_text(str));
@@ -63,7 +65,7 @@ SJson *sj_load(const char *filename)
         fclose(file);
         return NULL;
     }
-    printf("loaded file %s with a size of %li characters\n",filename,size);
+    if (__SJ_DEBUG) printf("loaded file %s with a size of %li characters\n",filename,size);
 
     buffer = (char *)malloc(sizeof(char)*(size + 2));
     
@@ -77,13 +79,13 @@ SJson *sj_load(const char *filename)
     
     if ((read = fread(buffer, sizeof(char), size, file)) != size)
     {
-        printf("expected to read %li characters, but read %li instead\n",size,read);
+        sj_set_error("expected to read %li characters, but read %li instead\n",size,read);
     }
     else
     {
-        printf("read %li characters of %li available",read,size);
+        if (__SJ_DEBUG) printf("read %li characters of %li available",read,size);
     }
-    printf("file contents:\n%s\n",buffer);
+    if (__SJ_DEBUG) printf("file contents:\n%s\n",buffer);
     fclose(file);
     
     json = sj_parse_buffer(buffer,read);
@@ -248,6 +250,14 @@ int sj_is_null(SJson *json)
     return 1;
 }
 
+void sj_enable_debug()
+{
+    __SJ_DEBUG = 1;
+}
 
+void sj_disable_debug()
+{
+    __SJ_DEBUG = 0;
+}
 
 /*eol@eof*/

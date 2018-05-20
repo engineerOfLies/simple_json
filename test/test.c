@@ -11,20 +11,23 @@ int main(int argc, char *argv[])
     float f;
     printf("Loading Json file %s\n",argv[1]);
     
-    json = sj_load(argv[1]);
-    
-    printf("json loaded:\n");
-    if (!json)
+    if (argv[1])
     {
-        printf("json failed to laod:\n%s\n",sj_get_error());
+        json = sj_load(argv[1]);
+        
+        printf("json loaded:\n");
+        if (!json)
+        {
+            printf("json failed to laod:\n%s\n",sj_get_error());
+        }
+        sj_echo(json);
+        
+        printf("\nsaving json to file\n");
+        sj_save(json,"output.json");
+        
+        printf("freeing json structure\n");
+        sj_free(json);
     }
-    sj_echo(json);
-    
-    printf("\nsaving json to file\n");
-    sj_save(json,"output.json");
-    
-    printf("freeing json structure\n");
-    sj_free(json);
 
     printf("building a new json programatically\n");
     

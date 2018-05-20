@@ -6,6 +6,9 @@
 #include "simple_json_array.h"
 #include "simple_json_error.h"
 
+
+extern int __SJ_DEBUG;
+
 int sj_array_check(SJson *json)
 {
     if (!json)return 0;
