@@ -73,9 +73,9 @@ SJList *sj_list_expand(SJList *list)
     {
         return list;
     }
-    if (list->count > 0)
+    if (list->count > 1)
     {
-        memcpy(l->elements,list->elements,sizeof(SJListElementData)*list->count);
+        memcpy(l->elements,list->elements,sizeof(SJListElementData)*(list->count - 1));
     }
     l->count = list->count;
     sj_list_delete(list);

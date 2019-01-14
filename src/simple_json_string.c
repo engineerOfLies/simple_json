@@ -285,7 +285,7 @@ int sj_string_as_float(SJString *string,float *output)
     double value;
     if (!string)return 0;
     if (!string->text)return 0;
-    value = atoi(string->text);
+    value = atof(string->text);
     if (value == 0.0)// if we have a zero, make sure the string itself is not just zero
     {
         if (string->text[0] != '0')return 0;
