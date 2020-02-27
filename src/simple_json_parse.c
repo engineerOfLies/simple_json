@@ -129,7 +129,7 @@ SJString *sj_parse_string(jsParse *parse)
     str_length = p - parse->position;
     if (str_length <= 0)
     {
-        sj_set_error("sj_parse_string: string is a zero or negative length\nerror parsing string at: %s\n",parse->position);
+        sj_set_error("sj_parse_string: string is a zero or negative length\nerror parsing string at: %s",parse->position);
         sj_string_free(string);
         return NULL;
     }
@@ -220,18 +220,13 @@ SJson *sj_parse_object(jsParse *parse)
         sj_set_error("sj_parse_object: expected first character to be a {\n");
         return NULL;
     }
-    if (parse->position[1] == '}')
-    {
-        //NULL object
-        parse->position+=2;
-        return sj_null_new();
-    }
 
     // allocate working space
     json = sj_object_new();
     if (!json)return NULL;
 
     //chomp first character
+    parse->position++;
     do
     {
         parse->position = get_next_relevant_char(parse->position);
@@ -246,7 +241,7 @@ SJson *sj_parse_object(jsParse *parse)
         parse->position = get_next_relevant_char(parse->position);
         if (*parse->position != ':')
         {
-            sj_set_error("sj_parse_object: no colon (:) delimeter for object\nnear: %s\n",parse->position);
+            sj_set_error("sj_parse_object: no colon (:) delimeter for object\n");
             sj_object_free(json);
             sj_string_free(key);
             return NULL;
@@ -286,6 +281,11 @@ SJson *sj_parse_buffer(char *string,unsigned long length)
     }
     parse.buffer = string;
     parse.position = strchr(string, '{');
+    if (parse.position == NULL)
+    {
+        sj_set_error("sj_parse_buffer: --=== invalid file ===--");
+        return NULL;
+    }
     parse.end = &string[length -1];
     json = sj_parse_object(&parse);
     return json;
