@@ -283,7 +283,7 @@ SJson *sj_parse_buffer(char *string,unsigned long length)
     parse.position = strchr(string, '{');
     if (parse.position == NULL)
     {
-        sj_set_error("sj_parse_buffer: --=== invalid file ===--");
+        if (__SJ_DEBUG) sj_set_error("sj_parse_buffer: --=== invalid file ===--");
         return NULL;
     }
     parse.end = &string[length -1];

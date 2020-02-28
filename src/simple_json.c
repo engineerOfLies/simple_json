@@ -89,6 +89,10 @@ SJson *sj_load(const char *filename)
     fclose(file);
     
     json = sj_parse_buffer(buffer,read);
+    if (!json)
+    {
+        if (__SJ_DEBUG) sj_set_error("file %s failed to parse\n",filename);
+    }
     
     free(buffer);
     
