@@ -127,7 +127,7 @@ SJString *sj_parse_string(jsParse *parse)
         return NULL;
     }
     str_length = p - parse->position;
-    if (str_length <= 0)
+    if (str_length < 0)
     {
         sj_set_error("sj_parse_string: string is a zero or negative length\nerror parsing string at: %s",parse->position);
         sj_string_free(string);
