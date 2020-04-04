@@ -184,7 +184,7 @@ SJson *sj_parse_array(jsParse *parse)
 
     //chomp first character
     parse->position++;
-    do
+    while((*parse->position != ']') && (parse->position < parse->end))
     {
         value = sj_parse_value(parse);
         if (value == NULL)
@@ -202,7 +202,6 @@ SJson *sj_parse_array(jsParse *parse)
             parse->position++;
         }
     }
-    while((*parse->position != ']') && (parse->position < parse->end));
     parse->position++;
     return json;
 }
