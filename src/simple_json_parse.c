@@ -226,7 +226,7 @@ SJson *sj_parse_object(jsParse *parse)
 
     //chomp first character
     parse->position++;
-    do
+    while((*parse->position != '}') && (parse->position < parse->end))
     {
         parse->position = get_next_relevant_char(parse->position);
         key = sj_parse_string(parse);
@@ -264,7 +264,6 @@ SJson *sj_parse_object(jsParse *parse)
             parse->position++;
         }
     }
-    while((*parse->position != '}') && (parse->position < parse->end));
     parse->position++;
     return json;
 }
