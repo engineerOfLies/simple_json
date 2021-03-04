@@ -214,7 +214,7 @@ SJson *sj_parse_object(jsParse *parse)
     if (!parse)return NULL;
     // validate we are an object
     
-    if (*parse->position != '{')
+    if ((parse->position == NULL) || (*parse->position != '{'))
     {
         sj_set_error("sj_parse_object: expected first character to be a {\n");
         return NULL;
