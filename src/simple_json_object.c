@@ -127,6 +127,7 @@ SJson *sj_object_get_value(SJson *object,char *key)
         if (!pair)continue;
         if (sj_string_cmp(pair->key,key) == 0)
         {
+            if (strlen(key) != pair->key->length)continue;
            return pair->value; 
         }
     }
