@@ -80,6 +80,18 @@ void sj_array_append(SJson *array,SJson *value)
     array->v.array = sj_list_append(array->v.array,value);
 }
 
+void sj_array_delete_nth(SJson *array,int n)
+{
+    SJson *nth;
+    if (!sj_array_check(array))return;
+    nth = sj_array_get_nth(array,n);
+    if (nth)
+    {
+        sj_free(nth);
+    }
+    array->v.array = sj_list_delete_nth(array->v.array,n);
+}
+
 SJson *sj_array_get_nth(SJson *array,int n)
 {
     if (!sj_array_check(array))return NULL;

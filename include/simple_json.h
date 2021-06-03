@@ -118,6 +118,15 @@ SJson *sj_object_new();
 void sj_object_insert(SJson *object,char *key,SJson *value);
 
 /**
+ * @brief delete a value out of the object.
+ * @note this will recursively free the value and its children
+ * @param object the object to delete from
+ * @param key the key to be deleted
+ */
+void sj_object_delete_key(SJson *object,char *key);
+
+
+/**
  * @brief get the json value from an object given a key
  * @param object the hson object to get
  * @param key the key to search by
@@ -139,6 +148,14 @@ SJson *sj_array_new();
  * @note: this is a no-op if array is not an actual JSON array
  */
 void sj_array_append(SJson *array,SJson *value);
+
+/**
+ * @brief delete a given value from the array by index
+ * @param array the array to delete from
+ * @param n the index of the item to delete.
+ * @note: the value will be sj_free'd
+ */
+void sj_array_delete_nth(SJson *array,int n);
 
 /**
  * @brief get the number of elements in the json array

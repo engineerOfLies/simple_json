@@ -57,6 +57,27 @@ SJPair *sj_pair_new(char *key,SJson *value)
     return pair;
 }
 
+void sj_object_delete_key(SJson *object,char *key)
+{
+    int i,count;
+    SJPair *pair;
+    if (!sj_object_check(object))return;
+    count = sj_list_get_count(object->v.array);
+    for (i = 0; i < count; i++)
+    {
+        pair = sj_list_get_nth(object->v.array,i);
+        if (!pair)continue;
+        if (sj_string_cmp(pair->key,key) == 0)
+        {
+            sj_pair_free(pair);
+            sj_list_delete_nth(object->v.array,i);
+            break;
+        }
+    }
+    return;
+}
+
+
 void sj_object_insert(SJson *object,char *key,SJson *value)
 {
     SJPair *pair;
