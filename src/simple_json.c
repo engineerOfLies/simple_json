@@ -28,7 +28,7 @@ SJson *sj_new_bool(int b)
     return sj_string_to_value(sj_string_new_bool(b));
 }
 
-long get_file_Size(FILE *file)
+long sj_get_file_Size(FILE *file)
 {
   long size;
 
@@ -58,7 +58,7 @@ SJson *sj_load(const char *filename)
         sj_set_error("sj_load: failed to open file");
         return NULL;
     }
-    size = get_file_Size(file);
+    size = sj_get_file_Size(file);
     if (size <= 0)
     {
         sj_set_error("sj_load: error with file size");

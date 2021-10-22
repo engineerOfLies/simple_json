@@ -1,6 +1,8 @@
 #ifndef __SIMPLE_JSON_PARSE_H__
 #define __SIMPLE_JSON_PARSE_H__
 
+#include "simple_json.h"
+
 /**
  * @brief given a string, create a JSON object from it
  * @param string the strong to convert.  NO OP if this is NULL
