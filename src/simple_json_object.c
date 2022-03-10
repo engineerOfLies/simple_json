@@ -146,7 +146,7 @@ SJson *sj_object_get_value(SJson *object,char *key)
     {
         pair = sj_list_get_nth(object->v.array,i);
         if (!pair)continue;
-        if (sj_string_cmp(pair->key,key) == 0)
+        if ((sj_string_cmp(pair->key,key) == 0)&&(strlen(pair->key->text) == strlen(key)))
         {
            return pair->value; 
         }
