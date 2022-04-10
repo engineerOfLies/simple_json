@@ -92,6 +92,26 @@ void sj_array_delete_nth(SJson *array,int n)
     array->v.array = sj_list_delete_nth(array->v.array,n);
 }
 
+void sj_array_delete_item(SJson *array,SJson *item)
+{
+    SJson *nth;
+    int i,c;
+    if (!sj_array_check(array))return;
+    c = sj_array_get_count(array);
+    for (i = 0;i < c;i++)
+    {
+        nth = sj_array_get_nth(array,i);
+        if (!nth)continue;
+        if (nth == item)
+        {
+            sj_free(nth);
+            array->v.array = sj_list_delete_nth(array->v.array,i);
+            return;
+        }
+    }
+}
+
+
 SJson *sj_array_get_nth(SJson *array,int n)
 {
     if (!sj_array_check(array))return NULL;

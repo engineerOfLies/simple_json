@@ -158,6 +158,14 @@ void sj_array_append(SJson *array,SJson *value);
 void sj_array_delete_nth(SJson *array,int n);
 
 /**
+ * @brief delete a given value from the array by its json handle
+ * @param array the array to delete from
+ * @param item the item to delete.
+ * @note: the value will be sj_free'd
+ */
+void sj_array_delete_item(SJson *array,SJson *item);
+
+/**
  * @brief get the number of elements in the json array
  * @param array the json array
  * @return 0 if there is an error, the count otherwise
