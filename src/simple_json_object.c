@@ -37,7 +37,7 @@ void sj_pair_free(SJPair *pair)
     free(pair);
 }
 
-SJPair *sj_pair_new(char *key,SJson *value)
+SJPair *sj_pair_new(const char *key,SJson *value)
 {
     SJPair *pair;
     pair = (SJPair *)malloc(sizeof(SJPair));
@@ -57,7 +57,7 @@ SJPair *sj_pair_new(char *key,SJson *value)
     return pair;
 }
 
-void sj_object_delete_key(SJson *object,char *key)
+void sj_object_delete_key(SJson *object,const char *key)
 {
     int i,count;
     SJPair *pair;
@@ -78,7 +78,7 @@ void sj_object_delete_key(SJson *object,char *key)
 }
 
 
-void sj_object_insert(SJson *object,char *key,SJson *value)
+void sj_object_insert(SJson *object,const char *key,SJson *value)
 {
     SJPair *pair;
     if (!sj_object_check(object))return;
@@ -136,7 +136,7 @@ void sj_object_free(SJson *object)
     free(object);
 }
 
-SJson *sj_object_get_value(SJson *object,char *key)
+SJson *sj_object_get_value(SJson *object,const char *key)
 {
     int i,count;
     SJPair *pair;
@@ -154,7 +154,7 @@ SJson *sj_object_get_value(SJson *object,char *key)
     return NULL;
 }
 
-char *sj_object_get_value_as_string(SJson *object,char *key)
+const char *sj_object_get_value_as_string(SJson *object,const char *key)
 {
     SJson *value;
     value = sj_object_get_value(object,key);

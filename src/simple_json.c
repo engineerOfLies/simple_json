@@ -8,7 +8,7 @@
 
 int __SJ_DEBUG = 0;
 
-SJson *sj_new_str(char *str)
+SJson *sj_new_str(const char *str)
 {
     return sj_string_to_value(sj_string_new_text(str));
 }
@@ -126,7 +126,7 @@ void sj_free(SJson *json)
     if (json->json_free)json->json_free(json);
 }
 
-void sj_save(SJson *json,char *filename)
+void sj_save(SJson *json,const char *filename)
 {
     FILE *file;
     SJString *string;

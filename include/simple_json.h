@@ -31,14 +31,14 @@ SJson *sj_load(const char *filename);
  * @param json the struct to convert and write
  * @param filename the file to overwrite
  */
-void sj_save(SJson *json,char *filename);
+void sj_save(SJson *json,const char *filename);
 
 /**
  * @brief make a new json value that is a string
  * @param str the string to base the json value on
  * @return NULL on error or a new json that holds a string value
  */
-SJson *sj_new_str(char *str);
+SJson *sj_new_str(const char *str);
 
 /**
  * @brief get the JSON value as a string
@@ -115,7 +115,7 @@ SJson *sj_object_new();
  * @param value the value of the key
  * @note: this is a no-op if object is not an actual JSON object
  */
-void sj_object_insert(SJson *object,char *key,SJson *value);
+void sj_object_insert(SJson *object,const char *key,SJson *value);
 
 /**
  * @brief delete a value out of the object.
@@ -123,7 +123,7 @@ void sj_object_insert(SJson *object,char *key,SJson *value);
  * @param object the object to delete from
  * @param key the key to be deleted
  */
-void sj_object_delete_key(SJson *object,char *key);
+void sj_object_delete_key(SJson *object,const char *key);
 
 
 /**
@@ -133,7 +133,7 @@ void sj_object_delete_key(SJson *object,char *key);
  * @return NULL on error, or if no object provided or it is not of object or the key is not found, the value otherwise
  * @note: the json returned is OWNED by the parent object do not free it.
  */
-SJson *sj_object_get_value(SJson *object,char *key);
+SJson *sj_object_get_value(SJson *object,const char *key);
 
 /**
  * @brief allocate a new empty json array

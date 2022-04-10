@@ -9,7 +9,7 @@
  */
 void sj_object_free(SJson *object);
 
-void sj_object_insert(SJson *object,char *key,SJson *value);
+void sj_object_insert(SJson *object,const char *key,SJson *value);
 
 /**
  * @brief get the json object back as a formatted json string

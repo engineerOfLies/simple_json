@@ -23,7 +23,7 @@ SJString *sj_string_new();
  * @param s the character array to populate the string with
  * @return NULL on error or a new string that must be freed with sj_string_free
  */
-SJString *sj_string_new_text(char *s);
+SJString *sj_string_new_text(const char *s);
 
 SJString *sj_string_new_integer(int i);
 
@@ -43,14 +43,14 @@ void sj_string_free(SJString *string);
  * @param s the character array to compare with
  * @return <0 id string has a lower value than s, >0 if s has a lower value than string, 0 if they are equivalant
  */
-int sj_string_cmp(SJString *string,char *s);
+int sj_string_cmp(SJString *string,const char *s);
 
 /**
  * @brief set the value of string to s
  * @param string the string to change
  * @param s the character array to change it to
  */
-void sj_string_set(SJString *string,char *s);
+void sj_string_set(SJString *string,const char *s);
 
 /**
  * @brief set the value of string to s but only length of s
@@ -58,7 +58,7 @@ void sj_string_set(SJString *string,char *s);
  * @param s the character array to change it to
  * @param length the limit on characters to copy from s
  */
-void sj_string_set_limit(SJString *string,char *s, long length);
+void sj_string_set_limit(SJString *string,const char *s, long length);
 
 /**
  * @brief append the contents of string2 to string1
@@ -72,14 +72,14 @@ void sj_string_concat(SJString *string1,SJString *string2);
  * @param string the string to be added to
  * @param buffer a NULL terminated character buffer.  This will not be modified
  */
-void sj_string_append(SJString *string,char *buffer);
+void sj_string_append(SJString *string,const char *buffer);
 
 /**
  * @brief get the text back from the string
  * @param string the string to get
  * @return NULL on error or the character array containing the string text
  */
-char *sj_string_get_text(SJString *string);
+const char *sj_string_get_text(SJString *string);
 
 /**
  * @brief get the integer value if the string is a numer

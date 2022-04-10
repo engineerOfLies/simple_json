@@ -32,7 +32,7 @@ SJString *sj_string_new()
  * @param s the character array to populate the string with
  * @return NULL on error or a new string that must be freed with sj_string_free
  */
-SJString *sj_string_new_text(char *s)
+SJString *sj_string_new_text(const char *s)
 {
     SJString *string;
     unsigned int l;
@@ -88,7 +88,7 @@ void sj_string_free(SJString *string)
     free(string);
 }
 
-int sj_string_cmp(SJString *string,char *s)
+int sj_string_cmp(SJString *string,const char *s)
 {
     if (!string)
     {
@@ -103,7 +103,7 @@ int sj_string_cmp(SJString *string,char *s)
     return strncmp(string->text,s,string->length);
 }
 
-void sj_string_set(SJString *string,char *s)
+void sj_string_set(SJString *string,const char *s)
 {
     int l;
     if (!string)
@@ -133,7 +133,7 @@ void sj_string_set(SJString *string,char *s)
     strncpy(string->text,s,string->length);
 }
 
-void sj_string_set_limit(SJString *string,char *s,long l)
+void sj_string_set_limit(SJString *string,const char *s,long l)
 {
     if (!string)
     {
@@ -168,7 +168,7 @@ void sj_string_value_free(SJson *json)
     free(json);
 }
 
-char *sj_string_value_get_string(SJson *json)
+const char *sj_string_value_get_string(SJson *json)
 {
     if (!json)return NULL;
     return json->v.string->text;
@@ -195,10 +195,10 @@ SJson *sj_string_to_value(SJString *string)
     return json;
 }
 
-char *sj_string_get_text(SJString *string)
+const char *sj_string_get_text(SJString *string)
 {
     if (!string)return NULL;
-    return string->text;
+    return (const char *)string->text;
 }
 
 void sj_string_concat(SJString *string1,SJString *string2)
@@ -224,7 +224,7 @@ void sj_string_concat(SJString *string1,SJString *string2)
     string1->size = size;
 }
 
-void sj_string_append(SJString *string,char *buffer)
+void sj_string_append(SJString *string,const char *buffer)
 {
     char *newtext;
     size_t size;
