@@ -107,6 +107,24 @@ SJson *sj_object_copy(SJson *json)
     return object;
 }
 
+SJList *sj_object_get_keys_list(SJson *object)
+{
+    SJPair *pair;
+    int i,c;
+    SJList *list;
+    if (!object)return NULL;
+    if (object->sjtype != SJVT_Object)return NULL;
+    list = sj_list_new();
+    c = sj_list_get_count(object->v.array);
+    for (i = 0; i < c; i++)
+    {
+        pair = sj_list_get_nth(object->v.array,i);
+        if (!pair)continue;
+        list = sj_list_append(list,(void *)sj_string_get_text(pair->key));
+    }
+    return list;
+}
+
 SJson *sj_object_new()
 {
     SJson *object;

@@ -125,6 +125,13 @@ void sj_object_insert(SJson *object,const char *key,SJson *value);
  */
 void sj_object_delete_key(SJson *object,const char *key);
 
+/**
+ * @brief get a list of the keys from the object
+ * @param object the object to get keys from
+ * @return NULL if not an object or an error, a list of const char * that must be freed otherwise
+ * @note DO NOT edit the keys, do NOT free the keys.  ONLY free the list with sj_list_delete() when you are done
+ */
+SJList *sj_object_get_keys_list(SJson *object);
 
 /**
  * @brief get the json value from an object given a key
