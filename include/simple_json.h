@@ -143,6 +143,15 @@ SJList *sj_object_get_keys_list(SJson *object);
 SJson *sj_object_get_value(SJson *object,const char *key);
 
 /**
+ * @brief get the json value from an object given a key as a string
+ * @param object the hson object to get
+ * @param key the key to search by
+ * @return NULL on error, or the string
+ * @note: the string returned is OWNED by the parent object do not free it.
+ */
+const char *sj_object_get_value_as_string(SJson *object,const char *key);
+
+/**
  * @brief allocate a new empty json array
  * @return NULL on memory allocation error, an empty SJson array otherwise
  */
