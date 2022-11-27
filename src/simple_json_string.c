@@ -68,14 +68,14 @@ SJString *sj_string_new_integer(int i)
 SJString *sj_string_new_uint8(uint8_t i)
 {
     static char buffer[128];
-    sprintf(buffer,"%ui",i);
+    sprintf(buffer,"%u",i);
     return sj_string_new_text(buffer);
 }
 
 SJString *sj_string_new_uint32(uint32_t i)
 {
     static char buffer[128];
-    sprintf(buffer,"%uli",i);
+    sprintf(buffer,"%u",i);
     return sj_string_new_text(buffer);
 }
 
