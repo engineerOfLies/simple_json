@@ -1,6 +1,8 @@
 #ifndef __SIMPLE_JSON_STRING_H__
 #define __SIMPLE_JSON_STRING_H__
 
+#include "simple_json_types.h"
+
 /**
  * @brief a basic structure that keeps track of a string and its length
  * Automatically grows to accomodate longer strings
@@ -82,7 +84,7 @@ void sj_string_append(SJString *string,const char *buffer);
 const char *sj_string_get_text(SJString *string);
 
 /**
- * @brief get the integer value if the string is a numer
+ * @brief get the integer value if the string is a number
  * @param string the string to use as an integer
  * @param output [optional] where to store the integer value.  This is untouched if the string was not an integer
  * @return 0 if the string was not an integer or 1 if it was
@@ -90,7 +92,31 @@ const char *sj_string_get_text(SJString *string);
 int sj_string_as_integer(SJString *string,int *output);
 
 /**
- * @brief get the float value if the string is a numer
+ * @brief get the unsigned 8 bit integer value if the string is a number
+ * @param string the string to use as an integer
+ * @param output [optional] where to store the integer value.  This is untouched if the string was not an integer
+ * @return 0 if the string was not an integer or 1 if it was
+ */
+int sj_string_as_uint8(SJString *string,uint8_t *output);
+
+/**
+ * @brief get the signed 32 bit integer value if the string is a number
+ * @param string the string to use as an integer
+ * @param output [optional] where to store the integer value.  This is untouched if the string was not an integer
+ * @return 0 if the string was not an integer or 1 if it was
+ */
+int sj_string_as_int32(SJString *string,int32_t *output);
+
+/**
+ * @brief get the unsigned 32 bit integer value if the string is a number
+ * @param string the string to use as an integer
+ * @param output [optional] where to store the integer value.  This is untouched if the string was not an integer
+ * @return 0 if the string was not an integer or 1 if it was
+ */
+int sj_string_as_uint32(SJString *string,uint32_t *output);
+
+/**
+ * @brief get the float value if the string is a number
  * @param string the string to use as a float
  * @param output [optional] where to store the float value.  This is untouched if the string was not a float
  * @return 0 if the string was not an float or 1 if it was

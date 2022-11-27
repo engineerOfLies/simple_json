@@ -261,6 +261,59 @@ SJString *sj_string_to_json_string(SJson *string)
     sj_string_concat(json,string->v.string);
     sj_string_append(json,"\"");
     return json;
+
+}
+
+int sj_string_as_uint32(SJString *string,uint32_t *output)
+{
+    uint32_t value;
+    if (!string)return 0;
+    if (!string->text)return 0;
+    value = strtoul(string->text,NULL,10);
+    if (!value)// if we have a zero, make sure the string itself is not just zero
+    {
+        if (string->text[0] != '0')return 0;
+    }
+    if (output)
+    {
+        *output = (uint32_t)value;
+    }
+    return 1;
+}
+
+int sj_string_as_int32(SJString *string,int32_t *output)
+{
+    int32_t value;
+    if (!string)return 0;
+    if (!string->text)return 0;
+    value = atol(string->text);
+    if (!value)// if we have a zero, make sure the string itself is not just zero
+    {
+        if (string->text[0] != '0')return 0;
+    }
+    if (output)
+    {
+        *output = (int32_t)value;
+    }
+    return 1;
+}
+
+
+int sj_string_as_uint8(SJString *string,uint8_t *output)
+{
+    long value;
+    if (!string)return 0;
+    if (!string->text)return 0;
+    value = atol(string->text);
+    if (!value)// if we have a zero, make sure the string itself is not just zero
+    {
+        if (string->text[0] != '0')return 0;
+    }
+    if (output)
+    {
+        *output = (uint8_t)value;
+    }
+    return 1;
 }
 
 int sj_string_as_integer(SJString *string,int *output)

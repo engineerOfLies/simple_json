@@ -172,6 +172,52 @@ SJson *sj_object_get_value(SJson *object,const char *key)
     return NULL;
 }
 
+int sj_object_get_value_as_int(SJson *object,const char *key,int *output)
+{
+    SJson *value;
+    value = sj_object_get_value(object,key);
+    if (!value)return 0;
+    if (value->sjtype != SJVT_String)return 0;
+    return sj_string_as_integer(value->v.string,output);
+}
+
+int sj_object_get_value_as_uint8(SJson *object,const char *key,uint8_t *output)
+{
+    SJson *value;
+    value = sj_object_get_value(object,key);
+    if (!value)return 0;
+    if (value->sjtype != SJVT_String)return 0;
+    return sj_string_as_uint8(value->v.string,output);
+}
+
+int sj_object_get_value_as_uint32(SJson *object,const char *key,uint32_t *output)
+{
+    SJson *value;
+    value = sj_object_get_value(object,key);
+    if (!value)return 0;
+    if (value->sjtype != SJVT_String)return 0;
+    return sj_string_as_uint32(value->v.string,output);
+}
+
+int sj_object_get_value_as_int32(SJson *object,const char *key,int32_t *output)
+{
+    SJson *value;
+    value = sj_object_get_value(object,key);
+    if (!value)return 0;
+    if (value->sjtype != SJVT_String)return 0;
+    return sj_string_as_int32(value->v.string,output);
+}
+
+int sj_object_get_value_as_float(SJson *object,const char *key,float *output)
+{
+    SJson *value;
+    value = sj_object_get_value(object,key);
+    if (!value)return 0;
+    if (value->sjtype != SJVT_String)return 0;
+    return sj_string_as_float(value->v.string,output);
+}
+
+
 const char *sj_object_get_value_as_string(SJson *object,const char *key)
 {
     SJson *value;

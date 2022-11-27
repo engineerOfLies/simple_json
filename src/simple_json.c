@@ -200,6 +200,24 @@ int sj_get_integer_value(SJson *json,int *i)
     return sj_string_as_integer(json->v.string,i);
 }
 
+int sj_get_uint8_value(SJson *json,uint8_t *i)
+{
+    if ((!json)||(json->sjtype != SJVT_String))return 0;
+    return sj_string_as_uint8(json->v.string,i);
+}
+
+int sj_get_int32_value(SJson *json,int32_t *i)
+{
+    if ((!json)||(json->sjtype != SJVT_String))return 0;
+    return sj_string_as_int32(json->v.string,i);
+}
+
+int sj_get_uint32_value(SJson *json,uint32_t *i)
+{
+    if ((!json)||(json->sjtype != SJVT_String))return 0;
+    return sj_string_as_uint32(json->v.string,i);
+}
+
 int sj_get_float_value(SJson *json,float *f)
 {
     if ((!json)||(json->sjtype != SJVT_String))return 0;
