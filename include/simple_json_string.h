@@ -28,6 +28,9 @@ SJString *sj_string_new();
 SJString *sj_string_new_text(const char *s);
 
 SJString *sj_string_new_integer(int i);
+SJString *sj_string_new_uint8(uint8_t i);
+SJString *sj_string_new_int32(int32_t i);
+SJString *sj_string_new_uint32(uint32_t i);
 
 SJString *sj_string_new_float(float i);
 
