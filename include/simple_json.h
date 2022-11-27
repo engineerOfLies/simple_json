@@ -110,6 +110,28 @@ int sj_get_bool_value(SJson *json,short int *b);
 SJson *sj_new_int(int i);
 
 /**
+ * @brief make a new json value that is an unsigned 8bit integer
+ * @param i the integer value
+ * @return NULL on error or a new json that holds an integer value
+ */
+SJson *sj_new_uint8(uint8_t i);
+
+/**
+ * @brief make a new json value that is an unsigned 32bit integer
+ * @param i the integer value
+ * @return NULL on error or a new json that holds an integer value
+ */
+SJson *sj_new_uint32(uint32_t i);
+
+/**
+ * @brief make a new json value that is a signed 32bit integer
+ * @param i the integer value
+ * @return NULL on error or a new json that holds an integer value
+ */
+SJson *sj_new_int32(int32_t i);
+
+
+/**
  * @brief make a new json value that is a float
  * @param f the float value
  * @return NULL on error or a new json that holds a floating point value

@@ -18,17 +18,17 @@ SJson *sj_new_int(int i)
     return sj_string_to_value(sj_string_new_integer(i));
 }
 
-SJson *sj_new_uint8(int i)
+SJson *sj_new_uint8(uint8_t i)
 {
     return sj_string_to_value(sj_string_new_uint8(i));
 }
 
-SJson *sj_new_uint32(int i)
+SJson *sj_new_uint32(uint32_t i)
 {
     return sj_string_to_value(sj_string_new_uint32(i));
 }
 
-SJson *sj_new_int32(int i)
+SJson *sj_new_int32(int32_t i)
 {
     return sj_string_to_value(sj_string_new_int32(i));
 }
