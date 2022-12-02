@@ -172,6 +172,16 @@ SJson *sj_object_get_value(SJson *object,const char *key)
     return NULL;
 }
 
+int sj_object_get_value_as_bool(SJson *object,const char *key,short int *output)
+{
+    SJson *value;
+    value = sj_object_get_value(object,key);
+    if (!value)return 0;
+    if (value->sjtype != SJVT_String)return 0;
+    return sj_string_as_bool(value->v.string,output);
+}
+
+
 int sj_object_get_value_as_int(SJson *object,const char *key,int *output)
 {
     SJson *value;

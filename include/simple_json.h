@@ -201,6 +201,15 @@ SJson *sj_object_get_value(SJson *object,const char *key);
 const char *sj_object_get_value_as_string(SJson *object,const char *key);
 
 /**
+ * @brief get the json value from an object given a key as a bool
+ * @param object the hson object to get
+ * @param key the key to search by
+ * @param output where the value is written to
+ * @return 0 if not found or not an integer, 1 if all good
+ */
+int sj_object_get_value_as_bool(SJson *object,const char *key,short int *output);
+
+/**
  * @brief get the json value from an object given a key as an integer
  * @param object the hson object to get
  * @param key the key to search by
