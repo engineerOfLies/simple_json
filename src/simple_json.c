@@ -70,13 +70,13 @@ SJson *sj_load(const char *filename)
     file = fopen(filename,"r");
     if (!file)
     {
-        sj_set_error("sj_load: failed to open file");
+        sj_set_error("sj_load: failed to open file %s",filename);
         return NULL;
     }
     size = sj_get_file_Size(file);
     if (size <= 0)
     {
-        sj_set_error("sj_load: error with file size");
+        sj_set_error("sj_load: error with file size %s",filename);
         fclose(file);
         return NULL;
     }
@@ -86,7 +86,7 @@ SJson *sj_load(const char *filename)
     
     if (buffer == NULL)
     {
-        sj_set_error("sj_load: failed to allocate character buffer for json file");
+        sj_set_error("sj_load: failed to allocate character buffer for json file %s",filename);
         fclose(file);
         return NULL;
     }
@@ -94,7 +94,7 @@ SJson *sj_load(const char *filename)
     
     if ((read = fread(buffer, sizeof(char), size, file)) != size)
     {
-        sj_set_error("expected to read %li characters, but read %li instead\n",size,read);
+        sj_set_error("expected to read %li characters, but read %li instead\n for file %s",size,read,filename);
     }
     else
     {
