@@ -122,6 +122,7 @@ int sj_string_cmp(SJString *string,const char *s)
         sj_set_error("sj_string_cmp: no character array provided");
         return 1;
     }
+    if (strlen(string->text) != strlen(s))return -1;
     return strncmp(string->text,s,string->length);
 }
 
