@@ -55,6 +55,11 @@ char *get_next_relevant_char(char *buffer)
     if (!buffer)return NULL;
     while (buffer[0] != '\0')
     {
+        if ((buffer[0] < 31)||(buffer[0] == 127))
+        {
+            buffer++;
+            continue;
+        }
         switch (buffer[0])
         {
             case '\n':
@@ -226,9 +231,9 @@ SJson *sj_parse_object(jsParse *parse)
 
     //chomp first character
     parse->position++;
+    parse->position = get_next_relevant_char(parse->position);
     while((*parse->position != '}') && (parse->position < parse->end))
     {
-        parse->position = get_next_relevant_char(parse->position);
         key = sj_parse_string(parse);
         if (!key)
         {
@@ -240,7 +245,7 @@ SJson *sj_parse_object(jsParse *parse)
         parse->position = get_next_relevant_char(parse->position);
         if (*parse->position != ':')
         {
-            sj_set_error("sj_parse_object: no colon (:) delimeter for object\n");
+            sj_set_error("sj_parse_object: no colon (:) delimeter for object key %s\n",key->text);
             sj_object_free(json);
             sj_string_free(key);
             return NULL;
@@ -250,7 +255,7 @@ SJson *sj_parse_object(jsParse *parse)
 
         if (value == NULL)
         {
-            sj_set_error("sj_parse_object: --=== object value failed to parse! ===--");
+            sj_set_error("sj_parse_object: --=== object value failed to parse for key '%s' ===--",key->text);
             sj_string_free(key);
             sj_object_free(json);
             return NULL;
@@ -263,6 +268,7 @@ SJson *sj_parse_object(jsParse *parse)
         {
             parse->position++;
         }
+        parse->position = get_next_relevant_char(parse->position);
     }
     parse->position++;
     return json;
