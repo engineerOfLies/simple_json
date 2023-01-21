@@ -99,6 +99,10 @@ SJString *sj_parse_string(jsParse *parse)
         quoted = 1;
         parse->position++;
     }
+    else
+    {
+        string->numeric = 1;
+    }
     if (quoted)
     {
         p = get_next_unescaped_char(parse->position, '"');
@@ -189,6 +193,7 @@ SJson *sj_parse_array(jsParse *parse)
 
     //chomp first character
     parse->position++;
+    parse->position = get_next_relevant_char(parse->position);
     while((*parse->position != ']') && (parse->position < parse->end))
     {
         value = sj_parse_value(parse);

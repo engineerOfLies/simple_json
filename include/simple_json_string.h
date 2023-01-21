@@ -12,6 +12,7 @@ typedef struct SJString_S
     char *text; /**<pointer to the character data*/
     int size;   /**<how much data base been allocated*/
     int length;   /**<how much data base been allocated*/
+    int numeric;    /**<if true, treat this as numeric value when writing*/
 }SJString;
 
 /**
@@ -23,9 +24,10 @@ SJString *sj_string_new();
 /**
  * @brief make a new string with the characters from array s
  * @param s the character array to populate the string with
+ * @param numeric if the value is a number or bool, set this to true
  * @return NULL on error or a new string that must be freed with sj_string_free
  */
-SJString *sj_string_new_text(const char *s);
+SJString *sj_string_new_text(const char *s,int numeric);
 
 SJString *sj_string_new_integer(int i);
 SJString *sj_string_new_uint8(uint8_t i);

@@ -135,7 +135,7 @@ SJString *sj_array_to_json_string(SJson *array)
     SJson *value;
     int i, count;
     if (!sj_array_check(array))return NULL;
-    string = sj_string_new_text("[");
+    string = sj_string_new_text("[",0);
     //for each
     count = sj_list_get_count(array->v.array);
     for (i = 0; i < count; i++)

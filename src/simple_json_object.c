@@ -46,7 +46,7 @@ SJPair *sj_pair_new(const char *key,SJson *value)
         sj_set_error("failed to allocate data for new data pair in object");
         return NULL;
     }
-    pair->key = sj_string_new_text(key);
+    pair->key = sj_string_new_text(key,0);
     if (!pair->key)
     {
         sj_pair_free(pair);
@@ -243,7 +243,7 @@ SJString *sj_object_to_json_string(SJson *object)
     SJString *valuestring;
     SJPair *pair;
     int i, count;
-    string = sj_string_new_text("{");
+    string = sj_string_new_text("{",0);
     //for each
     count = sj_list_get_count(object->v.array);
     for (i = 0; i < count; i++)

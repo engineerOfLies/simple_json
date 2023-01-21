@@ -30,9 +30,10 @@ SJString *sj_string_new()
 /**
  * @brief make a new string with the characters from array s
  * @param s the character array to populate the string with
+ * @param numeric if the value is a number or bool, set this to true
  * @return NULL on error or a new string that must be freed with sj_string_free
  */
-SJString *sj_string_new_text(const char *s)
+SJString *sj_string_new_text(const char *s,int numeric)
 {
     SJString *string;
     unsigned int l;
@@ -55,6 +56,7 @@ SJString *sj_string_new_text(const char *s)
     strncpy(string->text,s,l);
     string->length = strlen(s);
     string->size = l;
+    string->numeric = numeric;
     return string;
 }
 
@@ -62,28 +64,28 @@ SJString *sj_string_new_integer(int i)
 {
     static char buffer[128];
     sprintf(buffer,"%i",i);
-    return sj_string_new_text(buffer);
+    return sj_string_new_text(buffer,1);
 }
 
 SJString *sj_string_new_uint8(uint8_t i)
 {
     static char buffer[128];
     sprintf(buffer,"%u",i);
-    return sj_string_new_text(buffer);
+    return sj_string_new_text(buffer,1);
 }
 
 SJString *sj_string_new_uint32(uint32_t i)
 {
     static char buffer[128];
     sprintf(buffer,"%u",i);
-    return sj_string_new_text(buffer);
+    return sj_string_new_text(buffer,1);
 }
 
 SJString *sj_string_new_int32(int32_t i)
 {
     static char buffer[128];
     sprintf(buffer,"%i",i);
-    return sj_string_new_text(buffer);
+    return sj_string_new_text(buffer,1);
 }
 
 
@@ -91,13 +93,13 @@ SJString *sj_string_new_float(float f)
 {
     static char buffer[128];
     sprintf(buffer,"%f",f);
-    return sj_string_new_text(buffer);
+    return sj_string_new_text(buffer,1);
 }
 
 SJString *sj_string_new_bool(int i)
 {
-    if (i)return sj_string_new_text("true");
-    return sj_string_new_text("false");
+    if (i)return sj_string_new_text("true",1);
+    return sj_string_new_text("false",1);
 }
 
 void sj_string_free(SJString *string)
@@ -199,9 +201,13 @@ const char *sj_string_value_get_string(SJson *json)
 
 SJson *sj_string_copy(SJson *json)
 {
+    SJson *copy;
     if (!json)return NULL;
     if (json->sjtype != SJVT_String)return NULL;
-    return sj_new_str(json->v.string->text);
+    copy = sj_new_str(json->v.string->text);
+    if (!copy)return NULL;
+    copy->v.string->numeric = json->v.string->numeric;
+    return copy;
 }
 
 SJson *sj_string_to_value(SJString *string)
@@ -279,10 +285,12 @@ SJString *sj_string_to_json_string(SJson *string)
         sj_set_error("sj_string_to_json_string: input string not a string type");
         return NULL;
     }
-    json = sj_string_new_text("\"");
+    //need to skip if numeric
+    json = sj_string_new_text("",0);
+    if (!string->v.string->numeric)sj_string_append(json,"\"");
     if (!json)return NULL;
     sj_string_concat(json,string->v.string);
-    sj_string_append(json,"\"");
+    if (!string->v.string->numeric)sj_string_append(json,"\"");
     return json;
 
 }

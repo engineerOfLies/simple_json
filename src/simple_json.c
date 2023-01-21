@@ -10,7 +10,7 @@ int __SJ_DEBUG = 0;
 
 SJson *sj_new_str(const char *str)
 {
-    return sj_string_to_value(sj_string_new_text(str));
+    return sj_string_to_value(sj_string_new_text(str,0));
 }
 
 SJson *sj_new_int(int i)
@@ -184,7 +184,7 @@ SJString *sj_value_to_json_string(SJson *json)
 
 SJString *sj_null_to_json_string(SJson *json)
 {
-    return sj_string_new_text("null");
+    return sj_string_new_text("null",1);
 }
 
 SJson *sj_null_copy(SJson *json)
