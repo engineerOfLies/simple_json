@@ -17,7 +17,5 @@ Key Features:
  - When errors occur, get the internal message through sj_get_error()
 
 Known limitations:
- - Does not support double (yet) or variations on int (unsigned, short, or long)
- - Does not give object key count
- - Does not give object key list
  - object key lookup is O(n).
+ - save has no pretty option, only minified
