@@ -92,6 +92,7 @@ SJString *sj_string_new_int32(int32_t i)
 SJString *sj_string_new_float(float f)
 {
     static char buffer[128];
+    if (f == 0)f = 0;//to prevent negative zero from being written
     sprintf(buffer,"%f",f);
     return sj_string_new_text(buffer,1);
 }
@@ -366,16 +367,25 @@ int sj_string_as_integer(SJString *string,int *output)
 
 int sj_string_as_float(SJString *string,float *output)
 {
+    const char *str = NULL;
+    int negative = 0;
     double value;
     if (!string)return 0;
     if (!string->text)return 0;
-    value = atof(string->text);
+    str = string->text;
+    if (str[0] == '-')
+    {
+        negative = 1;
+        str++;//skip it
+    }
+    value = atof(str);
     if (value == 0.0)// if we have a zero, make sure the string itself is not just zero
     {
-        if (string->text[0] != '0')return 0;
+        if (str[0] != '0')return 0;
     }
     if (output)
     {
+        if ((value)&&(negative))value *= -1.0;
         *output = (float)value;
     }
     return 1;
