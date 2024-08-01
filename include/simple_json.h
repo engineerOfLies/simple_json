@@ -184,7 +184,7 @@ SJList *sj_object_get_keys_list(SJson *object);
 
 /**
  * @brief get the json value from an object given a key
- * @param object the hson object to get
+ * @param object the json object to get
  * @param key the key to search by
  * @return NULL on error, or if no object provided or it is not of object or the key is not found, the value otherwise
  * @note: the json returned is OWNED by the parent object do not free it.
@@ -193,7 +193,7 @@ SJson *sj_object_get_value(SJson *object,const char *key);
 
 /**
  * @brief get the json value from an object given a key as a string
- * @param object the hson object to get
+ * @param object the json object to get
  * @param key the key to search by
  * @return NULL on error, or the string
  * @note: the string returned is OWNED by the parent object do not free it.
@@ -203,7 +203,7 @@ const char *sj_object_get_string(SJson *object,const char *key);
 
 /**
  * @brief get the json value from an object given a key as a bool
- * @param object the hson object to get
+ * @param object the json object to get
  * @param key the key to search by
  * @param output where the value is written to
  * @return 0 if not found or not an integer, 1 if all good
@@ -213,7 +213,7 @@ int sj_object_get_bool(SJson *object,const char *key,short int *output);
 
 /**
  * @brief get the json value from an object given a key as an integer
- * @param object the hson object to get
+ * @param object the json object to get
  * @param key the key to search by
  * @param output where the value is written to
  * @return 0 if not found or not an integer, 1 if all good
@@ -223,7 +223,7 @@ int sj_object_get_int(SJson *object,const char *key,int *output);
 
 /**
  * @brief get the json value from an object given a key as an unsigned 8bit integer
- * @param object the hson object to get
+ * @param object the json object to get
  * @param key the key to search by
  * @param output where the value is written to
  * @return 0 if not found or not an integer, 1 if all good
@@ -233,7 +233,7 @@ int sj_object_get_uint8(SJson *object,const char *key,uint8_t *output);
 
 /**
  * @brief get the json value from an object given a key as an unsigned 32bit integer
- * @param object the hson object to get
+ * @param object the json object to get
  * @param key the key to search by
  * @param output where the value is written to
  * @return 0 if not found or not an integer, 1 if all good
@@ -243,7 +243,7 @@ int sj_object_get_uint32(SJson *object,const char *key,uint32_t *output);
 
 /**
  * @brief get the json value from an object given a key as a signed 32bit integer
- * @param object the hson object to get
+ * @param object the json object to get
  * @param key the key to search by
  * @param output where the value is written to
  * @return 0 if not found or not an integer, 1 if all good
@@ -253,7 +253,7 @@ int sj_object_get_int32(SJson *object,const char *key,int32_t *output);
 
 /**
  * @brief get the json value from an object given a key as a float
- * @param object the hson object to get
+ * @param object the json object to get
  * @param key the key to search by
  * @param output where the value is written to
  * @return 0 if not found or not an integer, 1 if all good
@@ -263,7 +263,7 @@ int sj_object_get_float(SJson *object,const char *key,float *output);
 
 /**
  * @brief get the json value from an object given a key as a float
- * @param object the hson object to get
+ * @param object the json object to get
  * @param key the key to search by
  * @param output where the value is written to
  * @return 0 if not found or not an integer, 1 if all good
