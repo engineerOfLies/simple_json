@@ -129,6 +129,14 @@ int sj_string_as_uint32(SJString *string,uint32_t *output);
 int sj_string_as_float(SJString *string,float *output);
 
 /**
+ * @brief get the double value if the string is a number
+ * @param string the string to use as a double
+ * @param output [optional] where to store the double value.  This is untouched if the string was not a double
+ * @return 0 if the string was not an double or 1 if it was
+ */
+int sj_string_as_double(SJString *string,double *output);
+
+/**
  * @brief get the bool value if the string is a bool
  * @param string the string to use as a bool
  * @param output [optional] where to store the boolean value.  This is untouched if the string was not a bool

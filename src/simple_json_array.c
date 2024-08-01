@@ -67,6 +67,11 @@ void sj_array_free(SJson *array)
     free(array);
 }
 
+int sj_array_count(SJson *array)
+{
+    return sj_array_get_count(array);
+}
+
 int sj_array_get_count(SJson *array)
 {
     if (!sj_array_check(array))return 0;
@@ -111,6 +116,10 @@ void sj_array_delete_item(SJson *array,SJson *item)
     }
 }
 
+SJson *sj_array_nth(SJson *array,int n)
+{
+    return sj_array_get_nth(array,n);
+}
 
 SJson *sj_array_get_nth(SJson *array,int n)
 {

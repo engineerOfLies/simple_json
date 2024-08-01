@@ -365,6 +365,32 @@ int sj_string_as_integer(SJString *string,int *output)
     return 1;
 }
 
+int sj_string_as_double(SJString *string,double *output)
+{
+    const char *str = NULL;
+    int negative = 0;
+    double value;
+    if (!string)return 0;
+    if (!string->text)return 0;
+    str = string->text;
+    if (str[0] == '-')
+    {
+        negative = 1;
+        str++;//skip it
+    }
+    value = atof(str);
+    if (value == 0.0)// if we have a zero, make sure the string itself is not just zero
+    {
+        if (str[0] != '0')return 0;
+    }
+    if (output)
+    {
+        if ((value)&&(negative))value *= -1.0;
+        *output = value;
+    }
+    return 1;
+}
+
 int sj_string_as_float(SJString *string,float *output)
 {
     const char *str = NULL;
