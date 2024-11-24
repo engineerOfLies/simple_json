@@ -5,6 +5,11 @@
             "includePath": [
                 "${workspaceFolder}/include"
             ],
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/src"
+                ]
+            },
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
             "cStandard": "c17",
