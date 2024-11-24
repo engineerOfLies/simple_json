@@ -1,0 +1,100 @@
+{
+    "tasks": [
+        {
+            "label": "build",
+            "dependsOrder": "sequence",
+            "dependsOn" : ["build libs", "build static", "test build test"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+        },
+        {
+            "label": "build libs",
+            "type": "shell",
+            "command": "make",  // This is the make command
+            "args": [
+                // Optional: specify the target if needed
+                // "target"  // e.g., "make clean" or a specific target
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/src"  // Path to the directory where the Makefile is located
+            },
+            "problemMatcher": [
+                "$gcc"  // This helps to match errors from GCC, if you're using it
+            ],
+            "detail": "Build the C project using Make"
+        },
+        {
+            "label": "build static",
+            "type": "shell",
+            "command": "make",  // This is the make command
+            "args": [
+                "static"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/src"  // Path to the directory where the Makefile is located
+            },
+            "problemMatcher": [
+                "$gcc"  // This helps to match errors from GCC, if you're using it
+            ],
+            "detail": "Build the C project using Make"
+        },
+        {
+            "label": "test build test",
+            "type": "shell",
+            "command": "make",  // This is the make command
+            "args": [
+                // Optional: specify the target if needed
+                // "target"  // e.g., "make clean" or a specific target
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/src"  // Path to the directory where the Makefile is located
+            },
+            "problemMatcher": [
+                "$gcc"  // This helps to match errors from GCC, if you're using it
+            ],
+            "detail": "Build the C project using Make"
+        },
+        {
+            "label": "test build",
+            "type": "shell",
+            "command": "make",  // This is the make command
+            "args": [
+                "static"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/src"  // Path to the directory where the Makefile is located
+            },
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"  // This helps to match errors from GCC, if you're using it
+            ],
+            "detail": "Build the C project using Make"
+        },
+        {
+            "label": "test build static",
+            "type": "shell",
+            "command": "make",  // This is the make command
+            "args": [
+                // Optional: specify the target if needed
+                // "target"  // e.g., "make clean" or a specific target
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/test"  // Path to the directory where the Makefile is located
+            },
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"  // This helps to match errors from GCC, if you're using it
+            ],
+            "detail": "Build the C project using Make"
+        }
+    ],
+    "version": "2.0.0"
+}
