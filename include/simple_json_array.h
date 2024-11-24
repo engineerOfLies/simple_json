@@ -26,6 +26,6 @@ SJString *sj_array_get_nth_as_string(SJson *array,int n);
  * @param array the json array to convert
  * @return a formatted json character array "[*,*,....]"
  */
-SJString *sj_array_to_json_string(SJson *array);
+SJString *sj_array_to_json_string(SJson *array, int pretty);
 
 #endif

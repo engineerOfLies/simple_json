@@ -146,7 +146,7 @@ void sj_save(SJson *json,const char *filename)
     FILE *file;
     SJString *string;
     if ((!json) || (!json->get_string))return;
-    string = json->get_string(json);
+    string = json->get_string(json,0);
     if (!string)return;
     file = fopen(filename,"w");
     if (!file)
@@ -163,7 +163,7 @@ void sj_echo(SJson *json)
 {
     SJString *output;
     if ((!json) || (!json->get_string))return;
-    output = json->get_string(json);
+    output = json->get_string(json,0);
     if (!output)return;
     printf("%s\n",output->text);
     sj_string_free(output);
@@ -175,16 +175,16 @@ void sj_null_free(SJson *json)
     free(json);
 }
 
-SJString *sj_value_to_json_string(SJson *json)
+SJString *sj_value_to_json_string(SJson *json, int pretty)
 {
     if (!json)return NULL;
     if (!json->get_string)return NULL;
-    return json->get_string(json);
+    return json->get_string(json, pretty);
 }
 
-SJString *sj_null_to_json_string(SJson *json)
+SJString *sj_null_to_json_string(SJson *json, int pretty)
 {
-    return sj_string_new_text("null",1);
+    return sj_string_new_text("null",0);
 }
 
 SJson *sj_null_copy(SJson *json)

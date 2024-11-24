@@ -137,7 +137,7 @@ SJString *sj_array_get_nth_as_string(SJson *array,int n)
     return item->v.string;
 }
 
-SJString *sj_array_to_json_string(SJson *array)
+SJString *sj_array_to_json_string(SJson *array, int pretty)
 {
     SJString *string;
     SJString *valuestring;
@@ -151,7 +151,7 @@ SJString *sj_array_to_json_string(SJson *array)
     {
         value = sj_list_get_nth(array->v.array,i);
         if (!value)continue;
-        valuestring = sj_value_to_json_string(value);
+        valuestring = sj_value_to_json_string(value, pretty);
         sj_string_concat(string,valuestring);
         sj_string_free(valuestring);
         if (i +1 < count)sj_string_append(string,",");

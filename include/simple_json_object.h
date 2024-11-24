@@ -16,7 +16,7 @@ void sj_object_insert(SJson *object,const char *key,SJson *value);
  * @param object the object to convert
  * @return NULL on error, or a string encapsulated ith {}
  */
-SJString *sj_object_to_json_string(SJson *object);
+SJString *sj_object_to_json_string(SJson *object, int pretty);
 
 
 #endif

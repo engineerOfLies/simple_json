@@ -285,7 +285,7 @@ const char *sj_object_get_value_as_string(SJson *object,const char *key)
     return sj_string_get_text(value->v.string);
 }
 
-SJString *sj_object_to_json_string(SJson *object)
+SJString *sj_object_to_json_string(SJson *object, int pretty)
 {
     SJString *string;
     SJString *valuestring;
@@ -301,7 +301,7 @@ SJString *sj_object_to_json_string(SJson *object)
         sj_string_append(string,"\"");
         sj_string_concat(string,pair->key);
         sj_string_append(string,"\":");
-        valuestring = sj_value_to_json_string(pair->value);
+        valuestring = sj_value_to_json_string(pair->value, 0);
         sj_string_concat(string,valuestring);
         sj_string_free(valuestring);
         if (i +1 < count)sj_string_append(string,",");
