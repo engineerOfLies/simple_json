@@ -151,10 +151,24 @@ SJString *sj_array_to_json_string(SJson *array, int pretty)
     {
         value = sj_list_get_nth(array->v.array,i);
         if (!value)continue;
-        valuestring = sj_value_to_json_string(value, pretty);
+
+        valuestring = sj_value_to_json_string(value, pretty + 1);
+        if(value->sjtype != SJVT_Object)
+            {
+                sj_string_append(string,"\n");
+            }
+        sj_pretty_append_spaces(string, pretty + 1);
         sj_string_concat(string,valuestring);
         sj_string_free(valuestring);
-        if (i +1 < count)sj_string_append(string,",");
+        if (i + 1 < count)
+        {
+            sj_string_append(string,",");
+        }
+    }
+    if(count > 0)
+    {
+        sj_string_append(string,"\n");
+        sj_pretty_append_spaces(string, pretty);
     }
     sj_string_append(string,"]");
     return string;

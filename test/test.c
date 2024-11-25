@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
         {
             printf("json failed to laod:\n%s\n",sj_get_error());
         }
-        sj_echo(json);
+        sj_echo(json, 1);
         
         printf("\nsaving json to file\n");
         sj_save(json,"output.json");
@@ -46,13 +46,13 @@ int main(int argc, char *argv[])
 
 
     printf("json created:\n");
-    sj_echo(json);
+    sj_echo(json, 1);
     
     printf("copying json\n");
     sub = sj_copy(json);
     
     printf("copied json:\n");
-    sj_echo(sub);
+    sj_echo(sub, 1);
     
     sj_free(sub);
     

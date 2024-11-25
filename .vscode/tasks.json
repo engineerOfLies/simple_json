@@ -41,11 +41,11 @@
             "type": "shell",
             "command": "make",  // This is the make command
             "args": [
-                "-C","${workspaceFolder}/src"
+                "-C","${workspaceFolder}/test"
             ],
             "problemMatcher": {
                 "base": "$gcc",  // This helps to match errors from GCC, if you're using it
-                "fileLocation": ["relative", "${workspaceRoot}/src"]
+                "fileLocation": ["relative", "${workspaceRoot}/test"]
             },
             "detail": "Build the C project using Make"
         }

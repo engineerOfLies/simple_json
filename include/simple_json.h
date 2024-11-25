@@ -322,7 +322,7 @@ SJson *sj_array_nth(SJson *array,int n);
  * @brief print the contents of the json file to stdout
  * @param json the json struct to print
  */
-void sj_echo(SJson *json);
+void sj_echo(SJson *json, int pretty);
 
 /**
  * @brief check if the json is an array

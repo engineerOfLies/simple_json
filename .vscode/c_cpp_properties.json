@@ -7,7 +7,9 @@
             ],
             "browse": {
                 "path": [
-                    "${workspaceFolder}/src"
+                    "${workspaceFolder}/src",
+                    "${workspaceFolder}/src",
+                    "${workspaceFolder}/test"
                 ]
             },
             "defines": [],

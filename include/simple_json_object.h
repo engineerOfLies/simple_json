@@ -18,5 +18,5 @@ void sj_object_insert(SJson *object,const char *key,SJson *value);
  */
 SJString *sj_object_to_json_string(SJson *object, int pretty);
 
-
+void sj_pretty_append_spaces(SJString *object, int pretty);
 #endif

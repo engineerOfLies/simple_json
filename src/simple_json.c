@@ -159,11 +159,11 @@ void sj_save(SJson *json,const char *filename)
     fclose(file);
 }
 
-void sj_echo(SJson *json)
+void sj_echo(SJson *json, int pretty)
 {
     SJString *output;
     if ((!json) || (!json->get_string))return;
-    output = json->get_string(json,0);
+    output = json->get_string(json,pretty);
     if (!output)return;
     printf("%s\n",output->text);
     sj_string_free(output);
@@ -184,7 +184,7 @@ SJString *sj_value_to_json_string(SJson *json, int pretty)
 
 SJString *sj_null_to_json_string(SJson *json, int pretty)
 {
-    return sj_string_new_text("null",0);
+    return sj_string_new_text("null",pretty);
 }
 
 SJson *sj_null_copy(SJson *json)

@@ -6,7 +6,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/sj_test",
-            "args": [],
+            "args": ["test/testfile.json"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "MIMode": "gdb",
