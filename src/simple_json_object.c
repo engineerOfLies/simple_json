@@ -305,7 +305,7 @@ SJString *sj_object_to_json_string(SJson *object, int pretty)
     if(pretty > 1)
     {
         sj_string_append(string,"\n");
-        sj_pretty_append_spaces(string, pretty);
+        sj_pretty_append_spaces(string,pretty);
     }
     pretty = pretty ? pretty + 1 : 0;
     sj_string_append(string, "{");
@@ -319,13 +319,13 @@ SJString *sj_object_to_json_string(SJson *object, int pretty)
         if(pretty)
         {
             sj_string_append(string,"\n");
-            sj_pretty_append_spaces(string, pretty);
+            sj_pretty_append_spaces(string,pretty);
         }
         sj_string_append(string,"\"");
 
         sj_string_concat(string,pair->key);
         sj_string_append(string,"\":");
-        valuestring = sj_value_to_json_string(pair->value, pretty);
+        valuestring = sj_value_to_json_string(pair->value,pretty);
         sj_string_concat(string,valuestring);
         sj_string_free(valuestring);
         if (i + 1 < count)
@@ -336,7 +336,7 @@ SJString *sj_object_to_json_string(SJson *object, int pretty)
     if(count > 0 && pretty)
     {
         sj_string_append(string,"\n");
-        sj_pretty_append_spaces(string, pretty - 1);
+        sj_pretty_append_spaces(string,pretty - 1);
     }
     
     sj_string_append(string,"}");
