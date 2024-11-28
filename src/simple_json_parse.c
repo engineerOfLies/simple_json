@@ -296,6 +296,6 @@ SJson *sj_parse_buffer(char *string,unsigned long length)
         return NULL;
     }
     parse.end = &string[length -1];
-    json = sj_parse_object(&parse);
+    json = (*parse.position == '{') ? sj_parse_object(&parse): sj_parse_array(&parse);
     return json;
 }

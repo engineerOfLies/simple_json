@@ -307,6 +307,7 @@ SJString *sj_object_to_json_string(SJson *object, int pretty)
         sj_string_append(string,"\n");
         sj_pretty_append_spaces(string, pretty);
     }
+    pretty = pretty ? pretty + 1 : 0;
     sj_string_append(string, "{");
     
     //for each
@@ -315,13 +316,16 @@ SJString *sj_object_to_json_string(SJson *object, int pretty)
     {
         pair = sj_list_get_nth(object->v.array,i);
         if (!pair)continue;
-        sj_string_append(string,"\n");
-        sj_pretty_append_spaces(string, pretty + 1);
+        if(pretty)
+        {
+            sj_string_append(string,"\n");
+            sj_pretty_append_spaces(string, pretty);
+        }
         sj_string_append(string,"\"");
 
         sj_string_concat(string,pair->key);
         sj_string_append(string,"\":");
-        valuestring = sj_value_to_json_string(pair->value, pretty + 1);
+        valuestring = sj_value_to_json_string(pair->value, pretty);
         sj_string_concat(string,valuestring);
         sj_string_free(valuestring);
         if (i + 1 < count)
@@ -329,10 +333,10 @@ SJString *sj_object_to_json_string(SJson *object, int pretty)
             sj_string_append(string,",");
         }
     }
-    if(count > 0)
+    if(count > 0 && pretty)
     {
         sj_string_append(string,"\n");
-        sj_pretty_append_spaces(string, pretty);
+        sj_pretty_append_spaces(string, pretty - 1);
     }
     
     sj_string_append(string,"}");

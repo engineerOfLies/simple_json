@@ -141,12 +141,12 @@ void sj_free(SJson *json)
     if (json->json_free)json->json_free(json);
 }
 
-void sj_save(SJson *json,const char *filename)
+void sj_save(SJson *json,const char *filename, int pretty)
 {
     FILE *file;
     SJString *string;
     if ((!json) || (!json->get_string))return;
-    string = json->get_string(json,0);
+    string = json->get_string(json,pretty);
     if (!string)return;
     file = fopen(filename,"w");
     if (!file)
