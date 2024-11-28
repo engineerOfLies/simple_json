@@ -16,7 +16,12 @@ void sj_object_insert(SJson *object,const char *key,SJson *value);
  * @param object the object to convert
  * @return NULL on error, or a string encapsulated ith {}
  */
-SJString *sj_object_to_json_string(SJson *object);
+SJString *sj_object_to_json_string(SJson *object, int pretty);
 
-
+/**
+ * @brief appends spaces for get_string(), nothing if 0
+ * @param object the string to append to
+ * @param int amount of tabs to append offset by 1
+ */
+void sj_pretty_append_spaces(SJString *object, int pretty);
 #endif
