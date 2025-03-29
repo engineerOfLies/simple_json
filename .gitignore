@@ -50,3 +50,7 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+sj_test
+libs/libsj.*
+output.json
+

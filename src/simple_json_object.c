@@ -285,27 +285,60 @@ const char *sj_object_get_value_as_string(SJson *object,const char *key)
     return sj_string_get_text(value->v.string);
 }
 
-SJString *sj_object_to_json_string(SJson *object)
+void sj_pretty_append_spaces(SJString *object, int pretty)
+{
+    for(int i = 0; i < (pretty - 1); ++i)
+    {
+        sj_string_append(object, "    ");
+    }
+}
+
+
+SJString *sj_object_to_json_string(SJson *object, int pretty)
 {
     SJString *string;
     SJString *valuestring;
     SJPair *pair;
     int i, count;
-    string = sj_string_new_text("{",0);
+    
+    string = sj_string_new_text("", 0);
+    if(pretty > 1)
+    {
+        sj_string_append(string,"\n");
+        sj_pretty_append_spaces(string,pretty);
+    }
+    pretty = pretty ? pretty + 1 : 0;
+    sj_string_append(string, "{");
+    
     //for each
     count = sj_list_get_count(object->v.array);
     for (i = 0; i < count; i++)
     {
         pair = sj_list_get_nth(object->v.array,i);
         if (!pair)continue;
+        if(pretty)
+        {
+            sj_string_append(string,"\n");
+            sj_pretty_append_spaces(string,pretty);
+        }
         sj_string_append(string,"\"");
+
         sj_string_concat(string,pair->key);
         sj_string_append(string,"\":");
-        valuestring = sj_value_to_json_string(pair->value);
+        valuestring = sj_value_to_json_string(pair->value,pretty);
         sj_string_concat(string,valuestring);
         sj_string_free(valuestring);
-        if (i +1 < count)sj_string_append(string,",");
+        if (i + 1 < count)
+        {
+            sj_string_append(string,",");
+        }
     }
+    if(count > 0 && pretty)
+    {
+        sj_string_append(string,"\n");
+        sj_pretty_append_spaces(string,pretty - 1);
+    }
+    
     sj_string_append(string,"}");
     return string;
 }

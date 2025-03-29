@@ -283,19 +283,35 @@ SJson *sj_parse_buffer(char *string,unsigned long length)
 {
     SJson *json = NULL;
     static jsParse parse;
+    char *firstBrace;
+    char *firstBracket;
     if (!string)
     {
         sj_set_error("sj_parse_buffer: no string provided");
         return NULL;
     }
     parse.buffer = string;
-    parse.position = strchr(string, '{');
-    if (parse.position == NULL)
+
+    firstBrace = strchr(string, '{');
+    firstBracket = strchr(string, '[');
+    if(firstBrace && firstBracket)
+    {
+        parse.position = MIN(firstBracket, firstBrace);
+    }
+    else if(firstBrace)
+    {
+        parse.position = firstBrace;
+    }
+    else if(firstBracket)
+    {
+        parse.position = firstBracket;
+    }
+    else
     {
         if (__SJ_DEBUG) sj_set_error("sj_parse_buffer: --=== invalid file ===--");
         return NULL;
     }
     parse.end = &string[length -1];
-    json = sj_parse_object(&parse);
+    json = (*parse.position == '{') ? sj_parse_object(&parse): sj_parse_array(&parse);
     return json;
 }
