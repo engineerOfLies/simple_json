@@ -94,7 +94,7 @@ SJson *sj_load(const char *filename)
     
     if ((read = fread(buffer, sizeof(char), size, file)) != size)
     {
-        sj_set_error("expected to read %li characters, but read %li instead\n for file %s",size,read,filename);
+        if (__SJ_DEBUG) sj_set_error("expected to read %li characters, but read %li instead\n for file %s",size,read,filename);
     }
     else
     {
