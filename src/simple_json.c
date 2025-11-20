@@ -141,12 +141,12 @@ void sj_free(SJson *json)
     if (json->json_free)json->json_free(json);
 }
 
-void sj_save(SJson *json,const char *filename)
+void sj_save(SJson *json,const char *filename, int pretty)
 {
     FILE *file;
     SJString *string;
     if ((!json) || (!json->get_string))return;
-    string = json->get_string(json);
+    string = json->get_string(json,pretty);
     if (!string)return;
     file = fopen(filename,"w");
     if (!file)
@@ -159,11 +159,11 @@ void sj_save(SJson *json,const char *filename)
     fclose(file);
 }
 
-void sj_echo(SJson *json)
+void sj_echo(SJson *json, int pretty)
 {
     SJString *output;
     if ((!json) || (!json->get_string))return;
-    output = json->get_string(json);
+    output = json->get_string(json,pretty);
     if (!output)return;
     printf("%s\n",output->text);
     sj_string_free(output);
@@ -175,16 +175,16 @@ void sj_null_free(SJson *json)
     free(json);
 }
 
-SJString *sj_value_to_json_string(SJson *json)
+SJString *sj_value_to_json_string(SJson *json, int pretty)
 {
     if (!json)return NULL;
     if (!json->get_string)return NULL;
-    return json->get_string(json);
+    return json->get_string(json, pretty);
 }
 
-SJString *sj_null_to_json_string(SJson *json)
+SJString *sj_null_to_json_string(SJson *json, int pretty)
 {
-    return sj_string_new_text("null",1);
+    return sj_string_new_text("null",pretty);
 }
 
 SJson *sj_null_copy(SJson *json)
