@@ -67,8 +67,6 @@ SJson *sj_load(const char *filename)
     SJson *json;
     long size,read;
     char *buffer = NULL;
-    if (!filename)return NULL;
-    sj_set_filename(filename);
     file = fopen(filename,"r");
     if (!file)
     {
