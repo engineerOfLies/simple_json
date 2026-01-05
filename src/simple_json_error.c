@@ -9,13 +9,23 @@
 #ifndef vsnprintf
 #define vsnprintf _vsnprintf
 #endif
+#ifndef strncpy
+#define strncpy _strncpy
+#endif
 #endif
 
 static SJString _error = {0};
+static char _filename[512] = {0};
 
 char *sj_get_error()
 {
     return _error.text;
+}
+
+void sj_set_filename(const char *filename)
+{
+    if (!filename)return;
+    strncpy (_filename,filename,511);//leave the last letter null
 }
 
 void sj_set_error(char *error,...)
@@ -40,7 +50,7 @@ void sj_set_error(char *error,...)
     va_end(ap);
     
     // output error
-    printf("%s\n",er);
+    printf("%s: %s\n",_filename,er);
     sj_string_set(&_error,er);
     
     //cleanup

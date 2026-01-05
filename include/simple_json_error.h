@@ -28,4 +28,10 @@ char *sj_get_error();
  */
 void sj_set_error(char *error,...);
 
+/**
+ * @brief set the filename for error reporting
+ */
+void sj_set_filename(const char *filename);
+
+
 #endif
