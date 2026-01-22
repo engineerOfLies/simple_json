@@ -29,8 +29,9 @@ SJson *sj_load(const char *filename);
  * @brief write a json value as a formatted json string to file
  * @param json the struct to convert and write
  * @param filename the file to overwrite
+ * @param pretty bool to denote pretty output
  */
-void sj_save(SJson *json,char *filename);
+void sj_save(SJson *json,char *filename, int pretty);
 
 /**
  * @brief make a new json value that is a string
@@ -158,7 +159,7 @@ SJson *sj_array_get_nth(SJson *array,int n);
  * @brief print the contents of the json file to stdout
  * @param json the json struct to print
  */
-void sj_echo(SJson *json);
+void sj_echo(SJson *json, int pretty);
 
 /**
  * @brief check if the json is an array

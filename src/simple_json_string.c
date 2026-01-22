@@ -277,7 +277,7 @@ void sj_string_append(SJString *string,const char *buffer)
     string->size = size;
 }
 
-SJString *sj_string_to_json_string(SJson *string)
+SJString *sj_string_to_json_string(SJson *string, int pretty)
 {
     SJString *json;
     if (!string)return NULL;
